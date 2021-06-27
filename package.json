@@ -1,8 +1,8 @@
 {
-  "name": "cdk-schedule-function",
+  "name": "@softchef/cdk-schedule-function",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tirme0812/cdk-schedule-function.git"
+    "url": "https://github.com/softchef/cdk-schedule-function.git"
   },
   "scripts": {
     "clobber": "npx projen clobber",
@@ -14,7 +14,6 @@
     "test:update": "npx projen test:update",
     "bump": "npx projen bump",
     "unbump": "npx projen unbump",
-    "upgrade-dependencies": "npx projen upgrade-dependencies",
     "upgrade-projen": "npx projen upgrade-projen",
     "default": "npx projen default",
     "watch": "npx projen watch",
@@ -26,16 +25,17 @@
     "start": "npx projen start"
   },
   "author": {
-    "name": "MinChe Tsai",
-    "email": "tirme0812@gmail.com",
+    "name": "softchef-iot-lab",
+    "email": "poke@softchef.com",
     "organization": false
   },
   "devDependencies": {
-    "@aws-cdk/assert": "^1.95.2",
+    "@aws-cdk/assert": "^1.110.0",
     "@types/jest": "^26.0.23",
     "@types/node": "^10.17.0",
     "@typescript-eslint/eslint-plugin": "^4.27.0",
     "@typescript-eslint/parser": "^4.27.0",
+    "aws-sdk-client-mock": "^0.5.3",
     "eslint": "^7.28.0",
     "eslint-import-resolver-node": "^0.3.4",
     "eslint-import-resolver-typescript": "^2.4.0",
@@ -48,20 +48,65 @@
     "jsii-pacmak": "^1.30.0",
     "json-schema": "^0.3.0",
     "npm-check-updates": "^11",
-    "projen": "^0.24.8",
+    "projen": "0.24.12",
     "standard-version": "^9",
     "ts-jest": "^27.0.3",
     "typescript": "^4.3.3"
   },
   "peerDependencies": {
+    "@aws-cdk/aws-apigateway": "^1.110.0",
+    "@aws-cdk/aws-dynamodb": "^1.110.0",
+    "@aws-cdk/aws-events": "^1.110.0",
+    "@aws-cdk/aws-events-targets": "^1.110.0",
+    "@aws-cdk/aws-iam": "^1.110.0",
+    "@aws-cdk/aws-lambda": "^1.110.0",
+    "@aws-cdk/aws-lambda-nodejs": "^1.110.0",
+    "@aws-cdk/core": "^1.110.0",
     "constructs": "^3.2.27"
   },
-  "bundledDependencies": [],
+  "dependencies": {
+    "@aws-cdk/aws-apigateway": "^1.110.0",
+    "@aws-cdk/aws-dynamodb": "^1.110.0",
+    "@aws-cdk/aws-events": "^1.110.0",
+    "@aws-cdk/aws-events-targets": "^1.110.0",
+    "@aws-cdk/aws-iam": "^1.110.0",
+    "@aws-cdk/aws-lambda": "^1.110.0",
+    "@aws-cdk/aws-lambda-nodejs": "^1.110.0",
+    "@aws-cdk/core": "^1.110.0",
+    "@aws-sdk/client-dynamodb": "^3.18.0",
+    "@aws-sdk/client-eventbridge": "^3.18.0",
+    "@aws-sdk/client-lambda": "^3.19.0",
+    "@aws-sdk/lib-dynamodb": "^3.18.0",
+    "@aws-sdk/util-dynamodb": "^3.19.0",
+    "@softchef/cdk-restapi": "^0.0.24",
+    "@softchef/lambda-events": "^0.0.5",
+    "@types/node": "15.12.2",
+    "@types/uuid": "^8.3.0",
+    "dayjs": "^1.10.5",
+    "uuid": "^8.3.2"
+  },
+  "bundledDependencies": [
+    "@aws-sdk/client-dynamodb",
+    "@aws-sdk/client-eventbridge",
+    "@aws-sdk/client-lambda",
+    "@aws-sdk/lib-dynamodb",
+    "@aws-sdk/util-dynamodb",
+    "@softchef/cdk-restapi",
+    "@softchef/lambda-events",
+    "@types/node",
+    "@types/uuid",
+    "dayjs",
+    "uuid"
+  ],
   "keywords": [
-    "cdk"
+    "cdk",
+    "schedule"
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.0.0",
   "jest": {
     "testMatch": [

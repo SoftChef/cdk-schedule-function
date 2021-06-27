@@ -1,5 +1,5 @@
-import { Hello } from '../src';
+// import { ScheduleFunction } from '../src';
 
 test('hello', () => {
-  expect(new Hello().sayHello()).toBe('hello, world!');
+  // expect(new ScheduleFunction().sayHello()).toBe('hello, world!');
 });

@@ -6,7 +6,8 @@
     "inlineSourceMap": true,
     "inlineSources": true,
     "lib": [
-      "es2018"
+      "ES2020",
+      "DOM"
     ],
     "module": "CommonJS",
     "noEmitOnError": false,
@@ -21,7 +22,8 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "stripInternal": true,
-    "target": "ES2018"
+    "target": "ES2018",
+    "esModuleInterop": true
   },
   "include": [
     ".projenrc.js",
