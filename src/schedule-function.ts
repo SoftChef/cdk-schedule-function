@@ -7,6 +7,8 @@ import * as lambda from '@aws-cdk/aws-lambda';
 import { NodejsFunction } from '@aws-cdk/aws-lambda-nodejs';
 import * as cdk from '@aws-cdk/core';
 
+import { TargetFunctionProps } from './target-function';
+
 const LAMBDA_ASSETS_PATH = path.resolve(__dirname, '../lambda-assets');
 const DEFAULT_RECENT_MINUTES = 3; // minutes
 const DEFAULT_DISPATCH_TARGET_FUNCTION_TIMEOUT = 10; // seconds
@@ -24,10 +26,6 @@ export interface ScheduleFunctionProps {
    * Set recent minutes, ex: cdk.Duration.minutes(5) will limit the schedule must grand 5 minutes than now
    */
   readonly recentMinutes?: cdk.Duration;
-}
-
-export interface TargetFunctionProps {
-  readonly targetFunction: lambda.Function;
 }
 
 export class ScheduleFunction extends cdk.Construct {
