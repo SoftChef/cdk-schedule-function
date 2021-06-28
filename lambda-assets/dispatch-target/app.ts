@@ -30,6 +30,16 @@ export async function handler() {
   } = {};
   const targetFunctionsName = JSON.parse(TARGET_FUNCTIONS_NAME ?? '{}');
   try {
+    console.log('Query Params', {
+      TableName: SCHEDULE_TABLE_NAME,
+      KeyConditionExpression: '#scheduledAt = :scheduledAt',
+      ExpressionAttributeNames: {
+        '#scheduledAt': 'scheduledAt',
+      },
+      ExpressionAttributeValues: {
+        ':scheduledAt': dayjs().utc().format('YYYYMMDDHHmm'),
+      },
+    });
     const { Items: items } = await ddbDocClient.send(
       new QueryCommand({
         TableName: SCHEDULE_TABLE_NAME,
@@ -42,6 +52,7 @@ export async function handler() {
         },
       }),
     );
+    console.log('Items', items);
     for (const item of items ?? []) {
       const scheduleId: string = `${item.scheduledAt}-${item.id}`;
       schedules[scheduleId] = {
@@ -58,6 +69,7 @@ export async function handler() {
     console.error('Query schedule error', error);
   }
   try {
+    console.log('targetFunctionsName', targetFunctionsName);
     const lambdaClient: LambdaClient = new LambdaClient({});
     const invokes: Promise<any>[] = [];
     for (const scheduleId in schedules) {
@@ -99,6 +111,7 @@ export async function handler() {
     console.error('Invoke target function error', error);
   }
   try {
+    console.log('schedules', schedules);
     for (const scheduleId in schedules) {
       const schedule: ScheduleData = schedules[scheduleId];
       await ddbDocClient.send(

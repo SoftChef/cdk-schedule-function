@@ -40,6 +40,7 @@ export async function handler(event: { [key: string]: any }) {
       result = await ddbDocClient.send(
         new QueryCommand({
           TableName: SCHEDULE_TABLE_NAME,
+          IndexName: 'Query-By-TargetType',
           KeyConditionExpression: '#targetType = :targetType',
           ExpressionAttributeNames: {
             '#targetType': 'targetType',

@@ -52,7 +52,7 @@ export class ScheduleFunction extends cdk.Construct {
 
   public readonly deleteScheduleFunction: lambda.Function;
 
-  constructor(scope: cdk.Construct, id: string, props?: ScheduleFunctionProps) {
+  public constructor(scope: cdk.Construct, id: string, props?: ScheduleFunctionProps) {
     super(scope, id);
     this.recentMinutes = props?.recentMinutes ?? cdk.Duration.minutes(DEFAULT_RECENT_MINUTES);
     this.dispatchTagetFunctionTimeout = props?.dispatchTargetFunctionTimeout ?? cdk.Duration.seconds(DEFAULT_DISPATCH_TARGET_FUNCTION_TIMEOUT);
