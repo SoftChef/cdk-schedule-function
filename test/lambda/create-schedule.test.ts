@@ -43,6 +43,19 @@ test('Create schedule with empty inputs extect failure', async () => {
   expect(response.statusCode).toEqual(422);
   expect(body.error).toEqual([
     {
+      label: 'schedules',
+      key: 'schedules',
+      message: expect.any(String),
+      value: null,
+    },
+    {
+      type: 'object',
+      label: 'context',
+      key: 'context',
+      message: expect.any(String),
+      value: null,
+    },
+    {
       label: 'targetType',
       key: 'targetType',
       message: expect.any(String),
@@ -54,19 +67,6 @@ test('Create schedule with empty inputs extect failure', async () => {
     {
       label: 'targetType',
       key: 'targetType',
-      message: expect.any(String),
-      value: null,
-    },
-    {
-      label: 'schedules',
-      key: 'schedules',
-      message: expect.any(String),
-      value: null,
-    },
-    {
-      type: 'object',
-      label: 'context',
-      key: 'context',
       message: expect.any(String),
       value: null,
     },
@@ -90,15 +90,6 @@ test('Create schedule with invalid inputs extect failure', async () => {
   const body = JSON.parse(response.body);
   expect(response.statusCode).toEqual(422);
   expect(body.error).toEqual([
-    {
-      label: 'targetType',
-      key: 'targetType',
-      message: expect.any(String),
-      valids: Object.keys(
-        JSON.parse(process.env.TARGET_FUNCTIONS_NAME ?? '{}'),
-      ),
-      value: notExistsTargetType,
-    },
     {
       label: 'schedules[0]',
       key: 0,
@@ -134,6 +125,15 @@ test('Create schedule with invalid inputs extect failure', async () => {
       key: 'context',
       message: expect.any(String),
       value: 456,
+    },
+    {
+      label: 'targetType',
+      key: 'targetType',
+      message: expect.any(String),
+      valids: Object.keys(
+        JSON.parse(process.env.TARGET_FUNCTIONS_NAME ?? '{}'),
+      ),
+      value: notExistsTargetType,
     },
   ]);
 });

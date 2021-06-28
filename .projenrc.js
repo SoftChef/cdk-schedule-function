@@ -33,6 +33,7 @@ const project = new AwsCdkConstructLibrary({
     '@types/uuid',
     '@types/node@15.12.2',
     'dayjs',
+    'joi',
     'uuid',
   ],
   devDeps: [
