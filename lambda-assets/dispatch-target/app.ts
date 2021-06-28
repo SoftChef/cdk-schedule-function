@@ -80,6 +80,16 @@ export async function handler() {
           error: 'Target function not exists.',
         };
       }
+      console.log('Invoke params', {
+        FunctionName: targetFunctionName,
+        Payload: Buffer.from(
+          JSON.stringify({
+            scheduleId: scheduleId,
+            context: schedule.context,
+          }),
+          'utf-8',
+        ),
+      });
       invokes.push(
         lambdaClient.send(
           new InvokeCommand({
@@ -97,9 +107,11 @@ export async function handler() {
     }
     const invokeAll = await Promise.all(invokes);
     for (const invoke of invokeAll) {
+      console.log('InvokeResult', invoke);
       const response = JSON.parse(
         String.fromCharCode.apply(null, invoke?.Payload ?? Uint8Array.from('{}', x => x.charCodeAt(0))),
       ) ?? {};
+      console.log('InvokeReponse', response);
       if (typeof response === 'object' && schedules[response.scheduleId]) {
         schedules[response.scheduleId] = Object.assign(schedules[response.scheduleId], {
           status: response.success === true ? 'success' : 'failed',
@@ -114,6 +126,24 @@ export async function handler() {
     console.log('schedules', schedules);
     for (const scheduleId in schedules) {
       const schedule: ScheduleData = schedules[scheduleId];
+      console.log('Update params', {
+        TableName: SCHEDULE_TABLE_NAME,
+        Key: {
+          scheduledAt: schedule.scheduledAt,
+          id: schedule.id,
+        },
+        UpdateExpression: 'SET #response = :response, #status = :status, #updatedAt = :updatedAt',
+        ExpressionAttributeNames: {
+          '#response': 'response',
+          '#status': 'status',
+          '#updatedAt': 'updatedAt',
+        },
+        ExpressionAttributeValues: {
+          ':response': schedule.result,
+          ':status': schedule.status,
+          ':updatedAt': dayjs().valueOf(),
+        },
+      });
       await ddbDocClient.send(
         new UpdateCommand({
           TableName: SCHEDULE_TABLE_NAME,
@@ -128,7 +158,7 @@ export async function handler() {
             '#updatedAt': 'updatedAt',
           },
           ExpressionAttributeValues: {
-            ':response': schedule.result,
+            ':response': schedule.result ?? {},
             ':status': schedule.status,
             ':updatedAt': dayjs().valueOf(),
           },
