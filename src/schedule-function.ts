@@ -56,15 +56,15 @@ export class ScheduleFunction extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, props?: ScheduleFunctionProps) {
     super(scope, id);
-    this.recentMinutes(props?.recentMinutes ?? cdk.Duration.minutes(DEFAULT_RECENT_MINUTES));
-    this.dispatchTagetFunctionTimeout(props?.dispatchTargetFunctionTimeout ?? cdk.Duration.seconds(DEFAULT_DISPATCH_TARGET_FUNCTION_TIMEOUT));
-    this.scheduleTable = this.createScheduleTable();
-    this.dispatchTargetRule = this.createDispatchTargetRule(props);
-    this.createScheduleFunction = this.createCreateScheduleFunction();
-    this.listSchedulesFunction = this.createListSchedulesFunction();
-    this.fetchScheduleFunction = this.createFetchScheduleFunction();
-    this.updateScheduleFunction = this.createUpdateScheduleFunction();
-    this.deleteScheduleFunction = this.createDeleteScheduleFunction();
+    this.recentMinutes = props?.recentMinutes ?? cdk.Duration.minutes(DEFAULT_RECENT_MINUTES);
+    this.dispatchTagetFunctionTimeout = props?.dispatchTargetFunctionTimeout ?? cdk.Duration.seconds(DEFAULT_DISPATCH_TARGET_FUNCTION_TIMEOUT);
+    this.scheduleTable = this._createScheduleTable();
+    this.dispatchTargetRule = this._createDispatchTargetRule(props);
+    this.createScheduleFunction = this._createCreateScheduleFunction();
+    this.listSchedulesFunction = this._createListSchedulesFunction();
+    this.fetchScheduleFunction = this._createFetchScheduleFunction();
+    this.updateScheduleFunction = this._createUpdateScheduleFunction();
+    this.deleteScheduleFunction = this._createDeleteScheduleFunction();
   }
 
   public addTargetFunction(targetType: string, targetFunctionProps: TargetFunctionProps): this {
@@ -72,23 +72,21 @@ export class ScheduleFunction extends cdk.Construct {
     return this;
   }
 
-  public recentMinutes(recentMinutes: cdk.Duration): this {
+  set recentMinutes(recentMinutes: cdk.Duration) {
     if (recentMinutes.toMinutes() < DEFAULT_RECENT_MINUTES) {
       throw new Error(`Recent minutes must grand than ${DEFAULT_RECENT_MINUTES}.`);
     }
     this._recentMinutes = recentMinutes;
-    return this;
   }
 
-  public dispatchTagetFunctionTimeout(dispatchTargetFunctionTimeout: cdk.Duration): this {
+  set dispatchTagetFunctionTimeout(dispatchTargetFunctionTimeout: cdk.Duration) {
     if (dispatchTargetFunctionTimeout.toSeconds() < DEFAULT_DISPATCH_TARGET_FUNCTION_TIMEOUT) {
       throw new Error(`Dispatch target function timeout must grand than ${DEFAULT_DISPATCH_TARGET_FUNCTION_TIMEOUT}.`);
     }
     this._dispatchTargetFunctionTimeout = dispatchTargetFunctionTimeout;
-    return this;
   }
 
-  private renderTargetFunctionsName(): { [key: string]: string } {
+  private _renderTargetFunctionsName(): { [key: string]: string } {
     const targetFunctionsName: {
       [key: string]: string;
     } = {};
@@ -98,7 +96,7 @@ export class ScheduleFunction extends cdk.Construct {
     return targetFunctionsName;
   }
 
-  private renderTargetFunctionsArn(): { [key: string]: string } {
+  private _renderTargetFunctionsArn(): { [key: string]: string } {
     const targetFunctionsArn: {
       [key: string]: string;
     } = {};
@@ -108,21 +106,21 @@ export class ScheduleFunction extends cdk.Construct {
     return targetFunctionsArn;
   }
 
-  private createDispatchTargetRule(props?: ScheduleFunctionProps): events.Rule {
+  private _createDispatchTargetRule(props?: ScheduleFunctionProps): events.Rule {
     return new events.Rule(this, 'DispatchTargetRule', {
       schedule: events.Schedule.rate(
         cdk.Duration.minutes(1),
       ),
       targets: [
         new eventsTargets.LambdaFunction(
-          this.createDispatchTargetFunction(),
+          this._createDispatchTargetFunction(),
         ),
       ],
       enabled: props?.enabled ?? true,
     });
   }
 
-  private createDispatchTargetFunction(): NodejsFunction {
+  private _createDispatchTargetFunction(): NodejsFunction {
     const dispatchTargetFunction = new NodejsFunction(this, 'DispatchTargetFunction', {
       entry: `${LAMBDA_ASSETS_PATH}/dispatch-target/app.ts`,
       timeout: cdk.Duration.seconds(
@@ -134,7 +132,7 @@ export class ScheduleFunction extends cdk.Construct {
         SCHEDULE_TABLE_NAME: this.scheduleTable.tableName,
         TARGET_FUNCTIONS_NAME: cdk.Lazy.uncachedString({
           produce: () => JSON.stringify(
-            this.renderTargetFunctionsName(),
+            this._renderTargetFunctionsName(),
           ),
         }),
       },
@@ -157,7 +155,7 @@ export class ScheduleFunction extends cdk.Construct {
             ],
             resources: cdk.Lazy.uncachedList({
               produce: () => Object.values(
-                this.renderTargetFunctionsArn(),
+                this._renderTargetFunctionsArn(),
               ),
             }),
           }),
@@ -167,7 +165,7 @@ export class ScheduleFunction extends cdk.Construct {
     return dispatchTargetFunction;
   }
 
-  private createScheduleTable(): dynamodb.Table {
+  private _createScheduleTable(): dynamodb.Table {
     const table = new dynamodb.Table(this, 'ScheduleTable', {
       partitionKey: {
         name: 'scheduledAt',
@@ -190,14 +188,14 @@ export class ScheduleFunction extends cdk.Construct {
     return table;
   }
 
-  private createCreateScheduleFunction(): NodejsFunction {
+  private _createCreateScheduleFunction(): NodejsFunction {
     const createScheduleFunction = new NodejsFunction(this, 'CreateScheduleFunction', {
       entry: `${LAMBDA_ASSETS_PATH}/create-schedule/app.ts`,
       environment: {
         SCHEDULE_TABLE_NAME: this.scheduleTable.tableName,
         TARGET_FUNCTIONS_NAME: cdk.Lazy.uncachedString({
           produce: () => JSON.stringify(
-            this.renderTargetFunctionsName(),
+            this._renderTargetFunctionsName(),
           ),
         }),
         RECENT_MINUTES: cdk.Lazy.uncachedString({
@@ -222,7 +220,7 @@ export class ScheduleFunction extends cdk.Construct {
     return createScheduleFunction;
   }
 
-  private createListSchedulesFunction(): NodejsFunction {
+  private _createListSchedulesFunction(): NodejsFunction {
     const listSchedulesFunction = new NodejsFunction(this, 'ListScheduleFunction', {
       entry: `${LAMBDA_ASSETS_PATH}/list-schedules/app.ts`,
     });
@@ -244,21 +242,21 @@ export class ScheduleFunction extends cdk.Construct {
     return listSchedulesFunction;
   }
 
-  private createFetchScheduleFunction(): NodejsFunction {
+  private _createFetchScheduleFunction(): NodejsFunction {
     const fetchScheduleFunction = new NodejsFunction(this, 'FetchScheduleFunction', {
       entry: `${LAMBDA_ASSETS_PATH}/create-schedule/app.ts`,
     });
     return fetchScheduleFunction;
   }
 
-  private createUpdateScheduleFunction(): NodejsFunction {
+  private _createUpdateScheduleFunction(): NodejsFunction {
     const updateScheduleFunction = new NodejsFunction(this, 'UpdateScheduleFunction', {
       entry: `${LAMBDA_ASSETS_PATH}/create-schedule/app.ts`,
     });
     return updateScheduleFunction;
   }
 
-  private createDeleteScheduleFunction(): NodejsFunction {
+  private _createDeleteScheduleFunction(): NodejsFunction {
     const deleteScheduleFunction = new NodejsFunction(this, 'DeleteScheduleFunction', {
       entry: `${LAMBDA_ASSETS_PATH}/create-schedule/app.ts`,
     });

@@ -48,9 +48,11 @@ Name | Type | Description
 -----|------|-------------
 **createScheduleFunction** | <code>[Function](#aws-cdk-aws-lambda-function)</code> | <span></span>
 **deleteScheduleFunction** | <code>[Function](#aws-cdk-aws-lambda-function)</code> | <span></span>
+**dispatchTagetFunctionTimeout** | <code>[Duration](#aws-cdk-core-duration)</code> | <span></span>
 **dispatchTargetRule** | <code>[Rule](#aws-cdk-aws-events-rule)</code> | <span></span>
 **fetchScheduleFunction** | <code>[Function](#aws-cdk-aws-lambda-function)</code> | <span></span>
 **listSchedulesFunction** | <code>[Function](#aws-cdk-aws-lambda-function)</code> | <span></span>
+**recentMinutes** | <code>[Duration](#aws-cdk-core-duration)</code> | <span></span>
 **scheduleTable** | <code>[Table](#aws-cdk-aws-dynamodb-table)</code> | <span></span>
 **updateScheduleFunction** | <code>[Function](#aws-cdk-aws-lambda-function)</code> | <span></span>
 
@@ -68,32 +70,6 @@ addTargetFunction(targetType: string, targetFunctionProps: TargetFunctionProps):
 * **targetType** (<code>string</code>)  *No description*
 * **targetFunctionProps** (<code>[TargetFunctionProps](#softchef-cdk-schedule-function-targetfunctionprops)</code>)  *No description*
   * **targetFunction** (<code>[Function](#aws-cdk-aws-lambda-function)</code>)  *No description* 
-
-__Returns__:
-* <code>[ScheduleFunction](#softchef-cdk-schedule-function-schedulefunction)</code>
-
-#### dispatchTagetFunctionTimeout(dispatchTargetFunctionTimeout) <a id="softchef-cdk-schedule-function-schedulefunction-dispatchtagetfunctiontimeout"></a>
-
-
-
-```ts
-dispatchTagetFunctionTimeout(dispatchTargetFunctionTimeout: Duration): ScheduleFunction
-```
-
-* **dispatchTargetFunctionTimeout** (<code>[Duration](#aws-cdk-core-duration)</code>)  *No description*
-
-__Returns__:
-* <code>[ScheduleFunction](#softchef-cdk-schedule-function-schedulefunction)</code>
-
-#### recentMinutes(recentMinutes) <a id="softchef-cdk-schedule-function-schedulefunction-recentminutes"></a>
-
-
-
-```ts
-recentMinutes(recentMinutes: Duration): ScheduleFunction
-```
-
-* **recentMinutes** (<code>[Duration](#aws-cdk-core-duration)</code>)  *No description*
 
 __Returns__:
 * <code>[ScheduleFunction](#softchef-cdk-schedule-function-schedulefunction)</code>
