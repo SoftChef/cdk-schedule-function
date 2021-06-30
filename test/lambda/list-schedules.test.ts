@@ -38,6 +38,26 @@ test('List schedules by targetType success', async () => {
   documentClientMock.restore();
 });
 
+test('List schedules by targetId success', async () => {
+  const expectedTargetId = 'testA-1';
+  const filteredSchedules = expected.schedules.filter((schedule) => {
+    schedule.targetId == expectedTargetId;
+  });
+  const documentClientMock = mockClient(DynamoDBDocumentClient);
+  documentClientMock.on(QueryCommand).resolves({
+    Items: filteredSchedules,
+  });
+  const response = await listSchedules.handler({
+    queryStringParameters: {
+      targetId: expectedTargetId,
+    },
+  });
+  const body = JSON.parse(response.body);
+  expect(response.statusCode).toEqual(200);
+  expect(body.schedules).toEqual(filteredSchedules);
+  documentClientMock.restore();
+});
+
 test('List schedules all success', async () => {
   const documentClientMock = mockClient(DynamoDBDocumentClient);
   documentClientMock.on(ScanCommand).resolves({

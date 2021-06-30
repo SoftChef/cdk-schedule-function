@@ -37,6 +37,7 @@ export async function handler(event: { [key: string]: any }) {
       const joiSchema: {
         [key: string]: Joi.Schema<any>;
       } = {
+        targetId: joi.string().allow(null),
         schedules: joi.array().unique().min(1).max(25).items(
           joi.number().min(
             dayjs().add(recentMinutes, 'minutes').valueOf(),
@@ -54,6 +55,7 @@ export async function handler(event: { [key: string]: any }) {
       return response.error(validated.details, 422);
     }
     const targetType: string = request.input('targetType');
+    const targetId: string = request.input('targetId');
     const description: string = request.input('description', '');
     const context: { [key: string]: any } = request.input('context', {});
     const schedules: ScheduleItem[] = request.input('schedules', []).map((timestamp: number): ScheduleItem => {
@@ -66,6 +68,7 @@ export async function handler(event: { [key: string]: any }) {
         scheduledAt: scheduledAt,
         uuid: uuid,
         targetType: targetType,
+        targetId: targetId,
         description: description,
         context: context,
         status: 'pending',
@@ -92,7 +95,6 @@ export async function handler(event: { [key: string]: any }) {
       created: true,
     });
   } catch (error) {
-    console.log(error);
     return response.error(error);
   }
 }

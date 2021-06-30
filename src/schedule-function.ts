@@ -190,6 +190,15 @@ export class ScheduleFunction extends cdk.Construct {
       readCapacity: 1,
       writeCapacity: 1,
     });
+    table.addGlobalSecondaryIndex({
+      indexName: 'Query-By-TargetId',
+      partitionKey: {
+        name: 'targetId',
+        type: dynamodb.AttributeType.STRING,
+      },
+      readCapacity: 1,
+      writeCapacity: 1,
+    });
     return table;
   }
 

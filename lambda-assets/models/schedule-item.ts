@@ -3,6 +3,7 @@ export interface ScheduleItem {
   scheduledAt: string;
   uuid: string;
   targetType: string;
+  targetId: string;
   description?: string;
   context: any;
   status: string;

@@ -36,7 +36,22 @@ export async function handler(event: { [key: string]: any }) {
       };
     };
     let result = null;
-    if (fixedTargetType !== null || request.has('targetType')) {
+    if (request.has('targetId')) {
+      result = await ddbDocClient.send(
+        new QueryCommand({
+          TableName: SCHEDULE_TABLE_NAME,
+          IndexName: 'Query-By-TargetId',
+          KeyConditionExpression: '#targetId = :targetId',
+          ExpressionAttributeNames: {
+            '#targetId': 'targetId',
+          },
+          ExpressionAttributeValues: {
+            ':targetId': request.input('targetId'),
+          },
+          ...parameters,
+        }),
+      );
+    } else if (fixedTargetType !== null || request.has('targetType')) {
       result = await ddbDocClient.send(
         new QueryCommand({
           TableName: SCHEDULE_TABLE_NAME,

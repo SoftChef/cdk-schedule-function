@@ -6,6 +6,7 @@ const seeds = <ScheduleItem[]> [
     scheduledAt: dayjs().add(1, 'hour').format('YYYYMMDDHHmm'),
     uuid: 'uuuu-iiii-dddd-vvvv-4444',
     targetType: 'testA',
+    targetId: 'testA-1',
     context: { a: 1 },
     description: 'TestA',
     result: {
@@ -18,6 +19,7 @@ const seeds = <ScheduleItem[]> [
     scheduledAt: dayjs().add(1, 'hour').format('YYYYMMDDHHmm'),
     uuid: 'uuuu-iiii-dddd-vvvv-5555',
     targetType: 'testB',
+    targetId: 'testB-1',
     context: { b: 1 },
     description: 'TestB',
     result: {
