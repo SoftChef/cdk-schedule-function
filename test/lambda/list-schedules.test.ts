@@ -16,10 +16,10 @@ import {
   mockClient,
 } from 'aws-sdk-client-mock';
 import * as listSchedules from '../../lambda-assets/list-schedules/app';
-import scheduleSeeds from './seeds/schedule';
+import { ScheduleSeeds } from './seeds/schedule';
 
 const expected = {
-  schedules: scheduleSeeds,
+  schedules: ScheduleSeeds.all(),
 };
 
 test('List schedules by targetType success', async () => {
@@ -35,6 +35,26 @@ test('List schedules by targetType success', async () => {
   const body = JSON.parse(response.body);
   expect(response.statusCode).toEqual(200);
   expect(body.schedules).toEqual(expected.schedules);
+  documentClientMock.restore();
+});
+
+test('List schedules by targetId success', async () => {
+  const expectedTargetId = 'testA-1';
+  const filteredSchedules = expected.schedules.filter((schedule) => {
+    schedule.targetId == expectedTargetId;
+  });
+  const documentClientMock = mockClient(DynamoDBDocumentClient);
+  documentClientMock.on(QueryCommand).resolves({
+    Items: filteredSchedules,
+  });
+  const response = await listSchedules.handler({
+    queryStringParameters: {
+      targetId: expectedTargetId,
+    },
+  });
+  const body = JSON.parse(response.body);
+  expect(response.statusCode).toEqual(200);
+  expect(body.schedules).toEqual(filteredSchedules);
   documentClientMock.restore();
 });
 

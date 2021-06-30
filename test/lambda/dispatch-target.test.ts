@@ -20,10 +20,11 @@ import {
   mockClient,
 } from 'aws-sdk-client-mock';
 import * as dispatchTarget from '../../lambda-assets/dispatch-target/app';
-import scheduleSeeds from './seeds/schedule';
+import { ScheduleItem } from '../../lambda-assets/models/schedule-item';
+import { ScheduleSeeds } from './seeds/schedule';
 
 const expected = {
-  schedules: scheduleSeeds,
+  schedules: ScheduleSeeds.all(),
 };
 
 test('Dispatch target success', async () => {
@@ -33,19 +34,11 @@ test('Dispatch target success', async () => {
   });
   const lambdaClientMock = mockClient(LambdaClient);
   const [expectedSuccessSchedule] = expected.schedules;
-  lambdaClientMock.on(InvokeCommand, {
-    Payload: Buffer.from(
-      JSON.stringify({
-        scheduleId: `${expectedSuccessSchedule.scheduledAt}-${expectedSuccessSchedule.id}`,
-        context: expectedSuccessSchedule.context,
-      }),
-      'utf-8',
-    ),
-  }).resolves({
+  lambdaClientMock.on(InvokeCommand).resolves({
     StatusCode: 200,
     Payload: Uint8Array.from(
       JSON.stringify({
-        scheduleId: `${expectedSuccessSchedule.scheduledAt}-${expectedSuccessSchedule.id}`,
+        scheduleId: expectedSuccessSchedule.scheduleId,
         success: true,
         result: expectedSuccessSchedule.result,
       }),
@@ -54,17 +47,12 @@ test('Dispatch target success', async () => {
   });
   documentClientMock.on(UpdateCommand).resolves({});
   const response = await dispatchTarget.handler();
-  for (const schedule of expected.schedules) {
-    const scheduleId = `${schedule.scheduledAt}-${schedule.id}`;
-    expect(response[scheduleId]).toEqual({
-      scheduledAt: schedule.scheduledAt,
-      id: schedule.id,
-      targetType: schedule.targetType,
-      description: schedule.description,
-      context: schedule.context,
+  for (const scheduleId in response) {
+    const schedule: ScheduleItem = response[scheduleId];
+    expect(schedule).toEqual({
+      ...ScheduleSeeds.get(schedule.scheduleId),
       result: schedule.targetType === 'testA' ? schedule.result : { error: 'Target function not exists.' },
       status: schedule.targetType === 'testA' ? 'success' : 'unprocess',
-      createdAt: schedule.createdAt,
     });
   }
   documentClientMock.restore();
