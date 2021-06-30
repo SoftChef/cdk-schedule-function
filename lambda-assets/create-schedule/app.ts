@@ -13,6 +13,7 @@ import {
   v4 as uuidv4,
 } from 'uuid';
 import { ScheduleData } from '../models/schedule-data';
+import * as crypto from 'crypto';
 
 const {
   SCHEDULE_TABLE_NAME,
@@ -56,10 +57,14 @@ export async function handler(event: { [key: string]: any }) {
     const description: string = request.input('description', '');
     const context: { [key: string]: any } = request.input('context', {});
     const schedules: ScheduleData[] = request.input('schedules', []).map((timestamp: number): ScheduleData => {
+      const md5 = crypto.createHash('md5');
       const schedule: dayjs.Dayjs = dayjs(timestamp).utc();
+      const scheduledAt = schedule.format('YYYYMMDDHHmm');
+      const uuid = uuidv4();
       return {
-        scheduledAt: schedule.format('YYYYMMDDHHmm'),
-        id: uuidv4(),
+        scheduleId: md5.update(`${scheduledAt}-${uuid}`).digest('hex'),
+        scheduledAt: scheduledAt,
+        uuid: uuid,
         targetType: targetType,
         description: description,
         context: context,
@@ -87,6 +92,7 @@ export async function handler(event: { [key: string]: any }) {
       created: true,
     });
   } catch (error) {
+    console.log(error);
     return response.error(error);
   }
 }

@@ -16,10 +16,10 @@ import {
   mockClient,
 } from 'aws-sdk-client-mock';
 import * as listSchedules from '../../lambda-assets/list-schedules/app';
-import scheduleSeeds from './seeds/schedule';
+import { ScheduleSeeds } from './seeds/schedule';
 
 const expected = {
-  schedules: scheduleSeeds,
+  schedules: ScheduleSeeds.all(),
 };
 
 test('List schedules by targetType success', async () => {

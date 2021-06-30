@@ -1,6 +1,7 @@
 export interface ScheduleData {
+  scheduleId: string;
   scheduledAt: string;
-  id: string;
+  uuid: string;
   targetType: string;
   description?: string;
   context: any;

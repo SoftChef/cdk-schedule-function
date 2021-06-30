@@ -25,14 +25,15 @@ export async function handler() {
   const ddbDocClient: DynamoDBDocumentClient = DynamoDBDocumentClient.from(
     new DynamoDBClient({}),
   );
-  const schedules: {
+  const targetFunctionsName = JSON.parse(TARGET_FUNCTIONS_NAME ?? '{}');
+  let schedules: {
     [key: string]: ScheduleData;
   } = {};
-  const targetFunctionsName = JSON.parse(TARGET_FUNCTIONS_NAME ?? '{}');
   try {
     const { Items: items } = await ddbDocClient.send(
       new QueryCommand({
         TableName: SCHEDULE_TABLE_NAME,
+        IndexName: 'Query-By-ScheduledAt',
         KeyConditionExpression: '#scheduledAt = :scheduledAt',
         ExpressionAttributeNames: {
           '#scheduledAt': 'scheduledAt',
@@ -43,15 +44,9 @@ export async function handler() {
       }),
     );
     for (const item of items ?? []) {
-      const scheduleId: string = `${item.scheduledAt}-${item.id}`;
-      schedules[scheduleId] = {
-        scheduledAt: item.scheduledAt,
-        id: item.id,
-        targetType: item.targetType,
-        description: item.description,
-        context: item.context,
+      schedules[item.scheduleId] = <ScheduleData> {
+        ...item,
         status: 'unprocess',
-        createdAt: item.createdAt,
       };
     }
   } catch (error) {
@@ -73,10 +68,7 @@ export async function handler() {
           new InvokeCommand({
             FunctionName: targetFunctionName,
             Payload: Buffer.from(
-              JSON.stringify({
-                scheduleId: scheduleId,
-                context: schedule.context,
-              }),
+              JSON.stringify(schedule),
               'utf-8',
             ),
           }),
@@ -106,7 +98,7 @@ export async function handler() {
           TableName: SCHEDULE_TABLE_NAME,
           Key: {
             scheduledAt: schedule.scheduledAt,
-            id: schedule.id,
+            uuid: schedule.uuid,
           },
           UpdateExpression: 'SET #response = :response, #status = :status, #updatedAt = :updatedAt',
           ExpressionAttributeNames: {

@@ -67,7 +67,12 @@ export async function handler(event: { [key: string]: any }) {
       ).toString('base64');
     }
     return response.json({
-      schedules,
+      schedules: (schedules ?? []).map((schedule) => {
+        return {
+          ...schedule,
+          scheduleId: `${schedule.scheduledAt}-${schedule.uuid}`,
+        };
+      }),
       nextToken,
     });
   } catch (error) {
