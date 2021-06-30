@@ -1,5 +1,3 @@
-process.env.SCHEDULE_TABLE_NAME = 'cdk-schedule-function-demo-DemoScheduleFunctionScheduleTableD2070658-7VF8CDKMWMK2';
-
 import {
   DynamoDBDocumentClient,
   GetCommand,

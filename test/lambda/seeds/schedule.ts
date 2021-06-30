@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
-import { ScheduleData } from '../../../lambda-assets/models/schedule-data';
+import { ScheduleItem } from '../../../lambda-assets/models/schedule-data';
 
-const seeds = <ScheduleData[]> [
+const seeds = <ScheduleItem[]> [
   {
     scheduledAt: dayjs().add(1, 'hour').format('YYYYMMDDHHmm'),
     uuid: 'uuuu-iiii-dddd-vvvv-4444',
@@ -35,19 +35,19 @@ const seeds = <ScheduleData[]> [
 
 export class ScheduleSeeds {
 
-  static all(): ScheduleData[] {
+  static all(): ScheduleItem[] {
     return seeds;
   }
 
-  static one(): ScheduleData {
+  static one(): ScheduleItem {
     const random = Math.round(
       Math.random() * (1 - 0) + 0,
     );
-    return <ScheduleData> seeds.splice(random, 1).pop();
+    return <ScheduleItem> seeds.splice(random, 1).pop();
   }
 
-  static get(scheduleId: string): ScheduleData {
-    return <ScheduleData> seeds.filter((schedule) => {
+  static get(scheduleId: string): ScheduleItem {
+    return <ScheduleItem> seeds.filter((schedule) => {
       return schedule.scheduleId === scheduleId;
     }).pop();
   }

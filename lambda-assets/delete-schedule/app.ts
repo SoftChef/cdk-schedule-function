@@ -4,11 +4,9 @@ import {
 import {
   DynamoDBDocumentClient,
   GetCommand,
-  UpdateCommand,
+  DeleteCommand,
 } from '@aws-sdk/lib-dynamodb';
 import { Request, Response } from '@softchef/lambda-events';
-import dayjs from 'dayjs';
-import * as Joi from 'joi';
 
 const {
   SCHEDULE_TABLE_NAME,
@@ -18,21 +16,7 @@ export async function handler(event: { [key: string]: any }) {
   const request = new Request(event);
   const response = new Response();
   try {
-    const validated = request.validate((joi: Joi.Root) => {
-      const joiSchema: {
-        [key: string]: Joi.Schema<any>;
-      } = {
-        description: joi.string().allow(null),
-        context: joi.object().required(),
-      };
-      return joiSchema;
-    });
-    if (validated.error) {
-      return response.error(validated.details, 422);
-    }
     const scheduleId: string = request.parameter('scheduleId');
-    const description: string = request.input('description', '');
-    const context: { [key: string]: any } = request.input('context', {});
     const ddbDocClient: DynamoDBDocumentClient = DynamoDBDocumentClient.from(
       new DynamoDBClient({}),
     );
@@ -48,26 +32,15 @@ export async function handler(event: { [key: string]: any }) {
       return response.error('Not found.', 404);
     };
     await ddbDocClient.send(
-      new UpdateCommand({
+      new DeleteCommand({
         TableName: SCHEDULE_TABLE_NAME,
         Key: {
           scheduleId: scheduleId,
-        },
-        UpdateExpression: 'set #description = :description and #context = :context and #updatedAt = :updatedAt',
-        ExpressionAttributeNames: {
-          '#description': 'description',
-          '#context': 'context',
-          '#updatedAt': 'updatedAt',
-        },
-        ExpressionAttributeValues: {
-          ':description': description,
-          ':context': context,
-          ':updatedAt': dayjs().valueOf(),
-        },
+        }
       }),
     );
     return response.json({
-      updated: true,
+      deleted: true,
     });
   } catch (error) {
     return response.error(error);

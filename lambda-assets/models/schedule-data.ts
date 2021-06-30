@@ -1,4 +1,4 @@
-export interface ScheduleData {
+export interface ScheduleItem {
   scheduleId: string;
   scheduledAt: string;
   uuid: string;

@@ -178,10 +178,6 @@ export class ScheduleFunction extends cdk.Construct {
         name: 'scheduledAt',
         type: dynamodb.AttributeType.STRING,
       },
-      sortKey: {
-        name: 'uuid',
-        type: dynamodb.AttributeType.STRING,
-      },
       readCapacity: 1,
       writeCapacity: 1,
     });
@@ -256,7 +252,7 @@ export class ScheduleFunction extends cdk.Construct {
 
   private _createFetchScheduleFunction(): NodejsFunction {
     const fetchScheduleFunction = new NodejsFunction(this, 'FetchScheduleFunction', {
-      entry: `${LAMBDA_ASSETS_PATH}/create-schedule/app.ts`,
+      entry: `${LAMBDA_ASSETS_PATH}/fetch-schedule/app.ts`,
       environment: {
         SCHEDULE_TABLE_NAME: this.scheduleTable.tableName,
       },
@@ -290,6 +286,7 @@ export class ScheduleFunction extends cdk.Construct {
         statements: [
           new iam.PolicyStatement({
             actions: [
+              'dynamodb:GetItem',
               'dynamodb:UpdateItem',
             ],
             resources: [
@@ -304,7 +301,7 @@ export class ScheduleFunction extends cdk.Construct {
 
   private _createDeleteScheduleFunction(): NodejsFunction {
     const deleteScheduleFunction = new NodejsFunction(this, 'DeleteScheduleFunction', {
-      entry: `${LAMBDA_ASSETS_PATH}/create-schedule/app.ts`,
+      entry: `${LAMBDA_ASSETS_PATH}/delete-schedule/app.ts`,
       environment: {
         SCHEDULE_TABLE_NAME: this.scheduleTable.tableName,
       },
@@ -314,6 +311,7 @@ export class ScheduleFunction extends cdk.Construct {
         statements: [
           new iam.PolicyStatement({
             actions: [
+              'dynamodb:GetItem',
               'dynamodb:DeleteItem',
             ],
             resources: [

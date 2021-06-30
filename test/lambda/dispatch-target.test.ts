@@ -20,7 +20,7 @@ import {
   mockClient,
 } from 'aws-sdk-client-mock';
 import * as dispatchTarget from '../../lambda-assets/dispatch-target/app';
-import { ScheduleData } from '../../lambda-assets/models/schedule-data';
+import { ScheduleItem } from '../../lambda-assets/models/schedule-data';
 import { ScheduleSeeds } from './seeds/schedule';
 
 const expected = {
@@ -48,7 +48,7 @@ test('Dispatch target success', async () => {
   documentClientMock.on(UpdateCommand).resolves({});
   const response = await dispatchTarget.handler();
   for (const scheduleId in response) {
-    const schedule: ScheduleData = response[scheduleId];
+    const schedule: ScheduleItem = response[scheduleId];
     expect(schedule).toEqual({
       ...ScheduleSeeds.get(schedule.scheduleId),
       result: schedule.targetType === 'testA' ? schedule.result : { error: 'Target function not exists.' },

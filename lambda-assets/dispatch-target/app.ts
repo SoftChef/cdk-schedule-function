@@ -12,7 +12,7 @@ import {
 } from '@aws-sdk/lib-dynamodb';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import { ScheduleData } from '../models/schedule-data';
+import { ScheduleItem } from '../models/schedule-data';
 
 const {
   SCHEDULE_TABLE_NAME,
@@ -27,7 +27,7 @@ export async function handler() {
   );
   const targetFunctionsName = JSON.parse(TARGET_FUNCTIONS_NAME ?? '{}');
   let schedules: {
-    [key: string]: ScheduleData;
+    [key: string]: ScheduleItem;
   } = {};
   try {
     const { Items: items } = await ddbDocClient.send(
@@ -44,7 +44,7 @@ export async function handler() {
       }),
     );
     for (const item of items ?? []) {
-      schedules[item.scheduleId] = <ScheduleData> {
+      schedules[item.scheduleId] = <ScheduleItem> {
         ...item,
         status: 'unprocess',
       };
@@ -56,7 +56,7 @@ export async function handler() {
     const lambdaClient: LambdaClient = new LambdaClient({});
     const invokes: Promise<any>[] = [];
     for (const scheduleId in schedules) {
-      const schedule: ScheduleData = schedules[scheduleId];
+      const schedule: ScheduleItem = schedules[scheduleId];
       const targetFunctionName: string = targetFunctionsName[schedule.targetType] ?? null;
       if (!targetFunctionName) {
         schedule.result = {
@@ -92,7 +92,7 @@ export async function handler() {
   }
   try {
     for (const scheduleId in schedules) {
-      const schedule: ScheduleData = schedules[scheduleId];
+      const schedule: ScheduleItem = schedules[scheduleId];
       await ddbDocClient.send(
         new UpdateCommand({
           TableName: SCHEDULE_TABLE_NAME,

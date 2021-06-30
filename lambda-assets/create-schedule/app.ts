@@ -12,7 +12,7 @@ import * as Joi from 'joi';
 import {
   v4 as uuidv4,
 } from 'uuid';
-import { ScheduleData } from '../models/schedule-data';
+import { ScheduleItem } from '../models/schedule-data';
 import * as crypto from 'crypto';
 
 const {
@@ -56,7 +56,7 @@ export async function handler(event: { [key: string]: any }) {
     const targetType: string = request.input('targetType');
     const description: string = request.input('description', '');
     const context: { [key: string]: any } = request.input('context', {});
-    const schedules: ScheduleData[] = request.input('schedules', []).map((timestamp: number): ScheduleData => {
+    const schedules: ScheduleItem[] = request.input('schedules', []).map((timestamp: number): ScheduleItem => {
       const md5 = crypto.createHash('md5');
       const schedule: dayjs.Dayjs = dayjs(timestamp).utc();
       const scheduledAt = schedule.format('YYYYMMDDHHmm');
@@ -78,7 +78,7 @@ export async function handler(event: { [key: string]: any }) {
     await ddbDocClient.send(
       new BatchWriteCommand({
         RequestItems: {
-          [`${SCHEDULE_TABLE_NAME}`]: schedules.map((schedule: ScheduleData) => {
+          [`${SCHEDULE_TABLE_NAME}`]: schedules.map((schedule: ScheduleItem) => {
             return {
               PutRequest: {
                 Item: schedule,
