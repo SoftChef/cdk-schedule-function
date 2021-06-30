@@ -20,7 +20,7 @@ import {
   mockClient,
 } from 'aws-sdk-client-mock';
 import * as dispatchTarget from '../../lambda-assets/dispatch-target/app';
-import { ScheduleItem } from '../../lambda-assets/models/schedule-data';
+import { ScheduleItem } from '../../lambda-assets/models/schedule-item';
 import { ScheduleSeeds } from './seeds/schedule';
 
 const expected = {

@@ -12,7 +12,7 @@ import * as Joi from 'joi';
 import {
   v4 as uuidv4,
 } from 'uuid';
-import { ScheduleItem } from '../models/schedule-data';
+import { ScheduleItem } from '../models/schedule-item';
 import * as crypto from 'crypto';
 
 const {

@@ -12,7 +12,7 @@ import {
 } from '@aws-sdk/lib-dynamodb';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import { ScheduleItem } from '../models/schedule-data';
+import { ScheduleItem } from '../models/schedule-item';
 
 const {
   SCHEDULE_TABLE_NAME,

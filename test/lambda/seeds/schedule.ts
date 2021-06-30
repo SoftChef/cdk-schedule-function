@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { ScheduleItem } from '../../../lambda-assets/models/schedule-data';
+import { ScheduleItem } from '../../../lambda-assets/models/schedule-item';
 
 const seeds = <ScheduleItem[]> [
   {
