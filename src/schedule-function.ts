@@ -136,7 +136,7 @@ export class ScheduleFunction extends cdk.Construct {
       },
     });
     dispatchTargetFunction.role?.attachInlinePolicy(
-      new iam.Policy(this, 'update-schedule-policy', {
+      new iam.Policy(this, 'dispatch-schedule-policy', {
         statements: [
           new iam.PolicyStatement({
             actions: [
@@ -166,11 +166,16 @@ export class ScheduleFunction extends cdk.Construct {
   private _createScheduleTable(): dynamodb.Table {
     const table = new dynamodb.Table(this, 'ScheduleTable', {
       partitionKey: {
-        name: 'scheduledAt',
+        name: 'scheduleId',
         type: dynamodb.AttributeType.STRING,
       },
-      sortKey: {
-        name: 'id',
+      readCapacity: 1,
+      writeCapacity: 1,
+    });
+    table.addGlobalSecondaryIndex({
+      indexName: 'Query-By-ScheduledAt',
+      partitionKey: {
+        name: 'scheduledAt',
         type: dynamodb.AttributeType.STRING,
       },
       readCapacity: 1,
@@ -182,6 +187,17 @@ export class ScheduleFunction extends cdk.Construct {
         name: 'targetType',
         type: dynamodb.AttributeType.STRING,
       },
+      readCapacity: 1,
+      writeCapacity: 1,
+    });
+    table.addGlobalSecondaryIndex({
+      indexName: 'Query-By-TargetId',
+      partitionKey: {
+        name: 'targetId',
+        type: dynamodb.AttributeType.STRING,
+      },
+      readCapacity: 1,
+      writeCapacity: 1,
     });
     return table;
   }
@@ -221,6 +237,9 @@ export class ScheduleFunction extends cdk.Construct {
   private _createListSchedulesFunction(): NodejsFunction {
     const listSchedulesFunction = new NodejsFunction(this, 'ListScheduleFunction', {
       entry: `${LAMBDA_ASSETS_PATH}/list-schedules/app.ts`,
+      environment: {
+        SCHEDULE_TABLE_NAME: this.scheduleTable.tableName,
+      },
     });
     listSchedulesFunction.role?.attachInlinePolicy(
       new iam.Policy(this, 'list-schedules-policy', {
@@ -228,7 +247,7 @@ export class ScheduleFunction extends cdk.Construct {
           new iam.PolicyStatement({
             actions: [
               'dynamodb:Query',
-              'dynamodb:UpdateItem',
+              'dynamodb:Scan',
             ],
             resources: [
               this.scheduleTable.tableArn,
@@ -242,22 +261,75 @@ export class ScheduleFunction extends cdk.Construct {
 
   private _createFetchScheduleFunction(): NodejsFunction {
     const fetchScheduleFunction = new NodejsFunction(this, 'FetchScheduleFunction', {
-      entry: `${LAMBDA_ASSETS_PATH}/create-schedule/app.ts`,
+      entry: `${LAMBDA_ASSETS_PATH}/fetch-schedule/app.ts`,
+      environment: {
+        SCHEDULE_TABLE_NAME: this.scheduleTable.tableName,
+      },
     });
+    fetchScheduleFunction.role?.attachInlinePolicy(
+      new iam.Policy(this, 'fetch-schedule-policy', {
+        statements: [
+          new iam.PolicyStatement({
+            actions: [
+              'dynamodb:GetItem',
+            ],
+            resources: [
+              this.scheduleTable.tableArn,
+            ],
+          }),
+        ],
+      }),
+    );
     return fetchScheduleFunction;
   }
 
   private _createUpdateScheduleFunction(): NodejsFunction {
     const updateScheduleFunction = new NodejsFunction(this, 'UpdateScheduleFunction', {
-      entry: `${LAMBDA_ASSETS_PATH}/create-schedule/app.ts`,
+      entry: `${LAMBDA_ASSETS_PATH}/update-schedule/app.ts`,
+      environment: {
+        SCHEDULE_TABLE_NAME: this.scheduleTable.tableName,
+      },
     });
+    updateScheduleFunction.role?.attachInlinePolicy(
+      new iam.Policy(this, 'update-schedule-policy', {
+        statements: [
+          new iam.PolicyStatement({
+            actions: [
+              'dynamodb:GetItem',
+              'dynamodb:UpdateItem',
+            ],
+            resources: [
+              this.scheduleTable.tableArn,
+            ],
+          }),
+        ],
+      }),
+    );
     return updateScheduleFunction;
   }
 
   private _createDeleteScheduleFunction(): NodejsFunction {
     const deleteScheduleFunction = new NodejsFunction(this, 'DeleteScheduleFunction', {
-      entry: `${LAMBDA_ASSETS_PATH}/create-schedule/app.ts`,
+      entry: `${LAMBDA_ASSETS_PATH}/delete-schedule/app.ts`,
+      environment: {
+        SCHEDULE_TABLE_NAME: this.scheduleTable.tableName,
+      },
     });
+    deleteScheduleFunction.role?.attachInlinePolicy(
+      new iam.Policy(this, 'delete-schedule-policy', {
+        statements: [
+          new iam.PolicyStatement({
+            actions: [
+              'dynamodb:GetItem',
+              'dynamodb:DeleteItem',
+            ],
+            resources: [
+              this.scheduleTable.tableArn,
+            ],
+          }),
+        ],
+      }),
+    );
     return deleteScheduleFunction;
   }
 }

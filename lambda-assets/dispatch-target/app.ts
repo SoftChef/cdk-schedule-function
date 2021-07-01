@@ -12,7 +12,7 @@ import {
 } from '@aws-sdk/lib-dynamodb';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import { ScheduleData } from '../models/schedule-data';
+import { ScheduleItem } from '../models/schedule-item';
 
 const {
   SCHEDULE_TABLE_NAME,
@@ -25,14 +25,15 @@ export async function handler() {
   const ddbDocClient: DynamoDBDocumentClient = DynamoDBDocumentClient.from(
     new DynamoDBClient({}),
   );
-  const schedules: {
-    [key: string]: ScheduleData;
-  } = {};
   const targetFunctionsName = JSON.parse(TARGET_FUNCTIONS_NAME ?? '{}');
+  let schedules: {
+    [key: string]: ScheduleItem;
+  } = {};
   try {
     const { Items: items } = await ddbDocClient.send(
       new QueryCommand({
         TableName: SCHEDULE_TABLE_NAME,
+        IndexName: 'Query-By-ScheduledAt',
         KeyConditionExpression: '#scheduledAt = :scheduledAt',
         ExpressionAttributeNames: {
           '#scheduledAt': 'scheduledAt',
@@ -43,15 +44,9 @@ export async function handler() {
       }),
     );
     for (const item of items ?? []) {
-      const scheduleId: string = `${item.scheduledAt}-${item.id}`;
-      schedules[scheduleId] = {
-        scheduledAt: item.scheduledAt,
-        id: item.id,
-        targetType: item.targetType,
-        description: item.description,
-        context: item.context,
+      schedules[item.scheduleId] = <ScheduleItem> {
+        ...item,
         status: 'unprocess',
-        createdAt: item.createdAt,
       };
     }
   } catch (error) {
@@ -61,7 +56,7 @@ export async function handler() {
     const lambdaClient: LambdaClient = new LambdaClient({});
     const invokes: Promise<any>[] = [];
     for (const scheduleId in schedules) {
-      const schedule: ScheduleData = schedules[scheduleId];
+      const schedule: ScheduleItem = schedules[scheduleId];
       const targetFunctionName: string = targetFunctionsName[schedule.targetType] ?? null;
       if (!targetFunctionName) {
         schedule.result = {
@@ -73,10 +68,7 @@ export async function handler() {
           new InvokeCommand({
             FunctionName: targetFunctionName,
             Payload: Buffer.from(
-              JSON.stringify({
-                scheduleId: scheduleId,
-                context: schedule.context,
-              }),
+              JSON.stringify(schedule),
               'utf-8',
             ),
           }),
@@ -100,13 +92,13 @@ export async function handler() {
   }
   try {
     for (const scheduleId in schedules) {
-      const schedule: ScheduleData = schedules[scheduleId];
+      const schedule: ScheduleItem = schedules[scheduleId];
       await ddbDocClient.send(
         new UpdateCommand({
           TableName: SCHEDULE_TABLE_NAME,
           Key: {
             scheduledAt: schedule.scheduledAt,
-            id: schedule.id,
+            uuid: schedule.uuid,
           },
           UpdateExpression: 'SET #response = :response, #status = :status, #updatedAt = :updatedAt',
           ExpressionAttributeNames: {

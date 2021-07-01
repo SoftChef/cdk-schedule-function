@@ -16,9 +16,6 @@ scheduleFunction.addTargetFunction('testTarget', {
   }),
 });
 
-// curl -X POST -d '{ "targetId": "testA", "description": "TestA", "schedules": [1624777111100], "context": {"a":1} }' https://hm1zv6yuhl.execute-api.ap-northeast-1.amazonaws.com/prod/schedules
-// curl
-
 new RestApi(stack, 'ScheduleApi', {
   enableCors: true,
   resources: [

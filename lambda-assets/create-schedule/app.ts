@@ -12,7 +12,8 @@ import * as Joi from 'joi';
 import {
   v4 as uuidv4,
 } from 'uuid';
-import { ScheduleData } from '../models/schedule-data';
+import { ScheduleItem } from '../models/schedule-item';
+import * as crypto from 'crypto';
 
 const {
   SCHEDULE_TABLE_NAME,
@@ -36,6 +37,7 @@ export async function handler(event: { [key: string]: any }) {
       const joiSchema: {
         [key: string]: Joi.Schema<any>;
       } = {
+        targetId: joi.string().allow(null),
         schedules: joi.array().unique().min(1).max(25).items(
           joi.number().min(
             dayjs().add(recentMinutes, 'minutes').valueOf(),
@@ -53,14 +55,20 @@ export async function handler(event: { [key: string]: any }) {
       return response.error(validated.details, 422);
     }
     const targetType: string = request.input('targetType');
+    const targetId: string = request.input('targetId');
     const description: string = request.input('description', '');
     const context: { [key: string]: any } = request.input('context', {});
-    const schedules: ScheduleData[] = request.input('schedules', []).map((timestamp: number): ScheduleData => {
+    const schedules: ScheduleItem[] = request.input('schedules', []).map((timestamp: number): ScheduleItem => {
+      const md5 = crypto.createHash('md5');
       const schedule: dayjs.Dayjs = dayjs(timestamp).utc();
+      const scheduledAt = schedule.format('YYYYMMDDHHmm');
+      const uuid = uuidv4();
       return {
-        scheduledAt: schedule.format('YYYYMMDDHHmm'),
-        id: uuidv4(),
+        scheduleId: md5.update(`${scheduledAt}-${uuid}`).digest('hex'),
+        scheduledAt: scheduledAt,
+        uuid: uuid,
         targetType: targetType,
+        targetId: targetId,
         description: description,
         context: context,
         status: 'pending',
@@ -73,7 +81,7 @@ export async function handler(event: { [key: string]: any }) {
     await ddbDocClient.send(
       new BatchWriteCommand({
         RequestItems: {
-          [`${SCHEDULE_TABLE_NAME}`]: schedules.map((schedule: ScheduleData) => {
+          [`${SCHEDULE_TABLE_NAME}`]: schedules.map((schedule: ScheduleItem) => {
             return {
               PutRequest: {
                 Item: schedule,
