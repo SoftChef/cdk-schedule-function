@@ -1100,9 +1100,9 @@
     tslib "^2.0.0"
 
 "@aws-sdk/lib-dynamodb@^3.18.0":
-  version "3.19.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/lib-dynamodb/-/lib-dynamodb-3.19.0.tgz#71eba4f2703738095136158745ee4d276a663e5c"
-  integrity sha512-2M2YVuA7R0eeI59MfvmOfQGLQBZg/pjGAtS9ectF6L/wG7+EF5owbFFb1FhP4vOEaw//eaeGvFywA1BBHIulOQ==
+  version "3.22.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/lib-dynamodb/-/lib-dynamodb-3.22.0.tgz#92215894ca3f4c864b25e61c20c683f765b29804"
+  integrity sha512-VuZsaq0QO7Opauo5m4jBcSB+1op5CYQ8yP2lpG6zeHX+v00DdNWys5NFXQ6jz97pME9JW7y0BGH9UV8iC/28AQ==
   dependencies:
     tslib "^2.0.0"
 
