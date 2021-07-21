@@ -1,3 +1,4 @@
+import * as crypto from 'crypto';
 import {
   DynamoDBClient,
 } from '@aws-sdk/client-dynamodb';
@@ -13,7 +14,6 @@ import {
   v4 as uuidv4,
 } from 'uuid';
 import { ScheduleItem } from '../models/schedule-item';
-import * as crypto from 'crypto';
 
 const {
   SCHEDULE_TABLE_NAME,
