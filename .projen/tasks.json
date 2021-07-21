@@ -136,6 +136,27 @@
         }
       ]
     },
+    "upgrade-dependencies": {
+      "name": "upgrade-dependencies",
+      "description": "upgrade dependencies",
+      "env": {
+        "CI": "0"
+      },
+      "steps": [
+        {
+          "exec": "npm-check-updates --upgrade --target=minor --reject='projen'"
+        },
+        {
+          "exec": "yarn install --check-files"
+        },
+        {
+          "exec": "yarn upgrade @aws-cdk/assert @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-sdk-client-mock eslint eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import jest jest-junit jsii jsii-diff jsii-docgen jsii-pacmak json-schema npm-check-updates standard-version ts-jest typescript @aws-sdk/client-dynamodb @aws-sdk/client-eventbridge @aws-sdk/client-lambda @aws-sdk/lib-dynamodb @aws-sdk/util-dynamodb @softchef/cdk-restapi @softchef/lambda-events @types/node @types/uuid dayjs joi uuid @aws-cdk/aws-apigateway @aws-cdk/aws-dynamodb @aws-cdk/aws-events-targets @aws-cdk/aws-events @aws-cdk/aws-iam @aws-cdk/aws-lambda-nodejs @aws-cdk/aws-lambda @aws-cdk/core constructs @aws-cdk/aws-apigateway @aws-cdk/aws-dynamodb @aws-cdk/aws-events-targets @aws-cdk/aws-events @aws-cdk/aws-iam @aws-cdk/aws-lambda-nodejs @aws-cdk/aws-lambda @aws-cdk/core"
+        },
+        {
+          "exec": "npx projen"
+        }
+      ]
+    },
     "upgrade-projen": {
       "name": "upgrade-projen",
       "description": "upgrade projen",
