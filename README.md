@@ -45,6 +45,10 @@ rootResource.addMethod('GET', apigateway.LambdaIntegration(scheduleFunction.list
 more...
 ```
 
+## Example
+
+[Demo stack](https://github.com/SoftChef/cdk-schedule-function/tree/main/src/demo)
+
 ## Roadmap
 
 - DispatchTarget performance up
