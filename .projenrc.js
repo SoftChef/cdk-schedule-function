@@ -4,7 +4,7 @@ const project = new AwsCdkConstructLibrary({
   authorEmail: 'poke@softchef.com',
   npmAccess: NpmAccess.PUBLIC,
   projectType: ProjectType.LIB,
-  cdkVersion: '1.111.0',
+  cdkVersion: '1.114.0',
   projenVersion: '0.26.3',
   initialVersion: '1.0.0',
   defaultReleaseBranch: 'main',

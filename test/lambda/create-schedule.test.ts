@@ -24,6 +24,7 @@ test('Create schedule success', async () => {
         dayjs().add(2, 'hour').valueOf(),
       ],
       description: 'Test schedule',
+      targetId: 'Test schedule',
       context: {
         document: {
           operation: 'test',
