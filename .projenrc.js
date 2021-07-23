@@ -4,13 +4,12 @@ const project = new AwsCdkConstructLibrary({
   authorEmail: 'poke@softchef.com',
   npmAccess: NpmAccess.PUBLIC,
   projectType: ProjectType.LIB,
-  cdkVersion: '1.114.0',
+  cdkVersion: '1.95.2',
   projenVersion: '0.27.6',
   initialVersion: '1.0.0',
   defaultReleaseBranch: 'main',
-  dependabot: false,
-  jsiiFqn: 'projen.AwsCdkConstructLibrary',
   name: '@softchef/cdk-schedule-function',
+  description: 'Manageable schedule to invoke lambda functions',
   repositoryUrl: 'https://github.com/softchef/cdk-schedule-function.git',
   cdkDependencies: [
     '@aws-cdk/core',
@@ -42,6 +41,9 @@ const project = new AwsCdkConstructLibrary({
   keywords: [
     'cdk',
     'schedule',
+    'events',
+    'lambda',
+    'function',
   ],
   tsconfig: {
     compilerOptions: {

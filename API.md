@@ -46,22 +46,22 @@ new ScheduleFunction(scope: Construct, id: string, props?: ScheduleFunctionProps
 
 Name | Type | Description 
 -----|------|-------------
-**createScheduleFunction** | <code>[Function](#aws-cdk-aws-lambda-function)</code> | <span></span>
-**deleteScheduleFunction** | <code>[Function](#aws-cdk-aws-lambda-function)</code> | <span></span>
+**createScheduleFunction** | <code>[Function](#aws-cdk-aws-lambda-function)</code> | Put new schedule into table, you can trigger by API Gateway or other AWS service.
+**deleteScheduleFunction** | <code>[Function](#aws-cdk-aws-lambda-function)</code> | Delete schedule data, you can trigger by API Gateway or other AWS service.
 **dispatchTagetFunctionTimeout** | <code>[Duration](#aws-cdk-core-duration)</code> | <span></span>
-**dispatchTargetRule** | <code>[Rule](#aws-cdk-aws-events-rule)</code> | <span></span>
-**fetchScheduleFunction** | <code>[Function](#aws-cdk-aws-lambda-function)</code> | <span></span>
-**listSchedulesFunction** | <code>[Function](#aws-cdk-aws-lambda-function)</code> | <span></span>
+**dispatchTargetRule** | <code>[Rule](#aws-cdk-aws-events-rule)</code> | Set a event rule to invoke dispatch target function every minutes.
+**fetchScheduleFunction** | <code>[Function](#aws-cdk-aws-lambda-function)</code> | Fetch schedule from table, you can trigger by API Gateway or other AWS service.
+**listSchedulesFunction** | <code>[Function](#aws-cdk-aws-lambda-function)</code> | List all schedules from table, you can trigger by API Gateway or other AWS service.
 **recentMinutes** | <code>[Duration](#aws-cdk-core-duration)</code> | <span></span>
-**scheduleTable** | <code>[Table](#aws-cdk-aws-dynamodb-table)</code> | <span></span>
-**updateScheduleFunction** | <code>[Function](#aws-cdk-aws-lambda-function)</code> | <span></span>
+**scheduleTable** | <code>[Table](#aws-cdk-aws-dynamodb-table)</code> | Store all of schedules in DynamoDB table.
+**updateScheduleFunction** | <code>[Function](#aws-cdk-aws-lambda-function)</code> | Update schedule data, you can trigger by API Gateway or other AWS service.
 
 ### Methods
 
 
 #### addTargetFunction(targetType, targetFunctionProps) <a id="softchef-cdk-schedule-function-schedulefunction-addtargetfunction"></a>
 
-
+Add a target function by targetType.
 
 ```ts
 addTargetFunction(targetType: string, targetFunctionProps: TargetFunctionProps): ScheduleFunction
@@ -69,7 +69,7 @@ addTargetFunction(targetType: string, targetFunctionProps: TargetFunctionProps):
 
 * **targetType** (<code>string</code>)  *No description*
 * **targetFunctionProps** (<code>[TargetFunctionProps](#softchef-cdk-schedule-function-targetfunctionprops)</code>)  *No description*
-  * **targetFunction** (<code>[Function](#aws-cdk-aws-lambda-function)</code>)  *No description* 
+  * **targetFunction** (<code>[Function](#aws-cdk-aws-lambda-function)</code>)  Specify lambda function to invoke on schedule time. 
 
 __Returns__:
 * <code>[ScheduleFunction](#softchef-cdk-schedule-function-schedulefunction)</code>
@@ -100,7 +100,7 @@ Name | Type | Description
 
 Name | Type | Description 
 -----|------|-------------
-**targetFunction** | <code>[Function](#aws-cdk-aws-lambda-function)</code> | <span></span>
+**targetFunction** | <code>[Function](#aws-cdk-aws-lambda-function)</code> | Specify lambda function to invoke on schedule time.
 
 
 

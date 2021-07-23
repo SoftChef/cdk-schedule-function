@@ -34,22 +34,41 @@ export class ScheduleFunction extends cdk.Construct {
     [key: string]: TargetFunctionProps;
   } = {};
 
+  /**
+   * Set recent minutes, ex: cdk.Duration.minutes(5) will limit the schedule must grand 5 minutes than now
+   */
   private _recentMinutes: cdk.Duration = cdk.Duration.minutes(DEFAULT_RECENT_MINUTES);
-
+  /**
+   * Set the dispatch function timeout
+   */
   private _dispatchTargetFunctionTimeout: cdk.Duration = cdk.Duration.seconds(DEFAULT_DISPATCH_TARGET_FUNCTION_TIMEOUT);
-
+  /**
+   * Store all of schedules in DynamoDB table
+   */
   public readonly scheduleTable: dynamodb.Table;
-
+  /**
+   * Set a event rule to invoke dispatch target function every minutes
+   */
   public readonly dispatchTargetRule: events.Rule;
-
+  /**
+   * Put new schedule into table, you can trigger by API Gateway or other AWS service
+   */
   public readonly createScheduleFunction: lambda.Function;
-
+  /**
+   * List all schedules from table, you can trigger by API Gateway or other AWS service
+   */
   public readonly listSchedulesFunction: lambda.Function;
-
+  /**
+   * Fetch schedule from table, you can trigger by API Gateway or other AWS service
+   */
   public readonly fetchScheduleFunction: lambda.Function;
-
+  /**
+   * Update schedule data, you can trigger by API Gateway or other AWS service
+   */
   public readonly updateScheduleFunction: lambda.Function;
-
+  /**
+   * Delete schedule data, you can trigger by API Gateway or other AWS service
+   */
   public readonly deleteScheduleFunction: lambda.Function;
 
   public constructor(scope: cdk.Construct, id: string, props?: ScheduleFunctionProps) {
@@ -64,7 +83,9 @@ export class ScheduleFunction extends cdk.Construct {
     this.updateScheduleFunction = this._createUpdateScheduleFunction();
     this.deleteScheduleFunction = this._createDeleteScheduleFunction();
   }
-
+  /**
+   * Add a target function by targetType
+   */
   public addTargetFunction(targetType: string, targetFunctionProps: TargetFunctionProps): this {
     this._targetFunctions[targetType] = targetFunctionProps;
     return this;
@@ -83,7 +104,9 @@ export class ScheduleFunction extends cdk.Construct {
     }
     this._dispatchTargetFunctionTimeout = dispatchTargetFunctionTimeout;
   }
-
+  /**
+   * Transfer target function name to object
+   */
   private _renderTargetFunctionsName(): { [key: string]: string } {
     const targetFunctionsName: {
       [key: string]: string;
@@ -93,7 +116,9 @@ export class ScheduleFunction extends cdk.Construct {
     }
     return targetFunctionsName;
   }
-
+  /**
+   * Transfer target function ARN to object
+   */
   private _renderTargetFunctionsArn(): { [key: string]: string } {
     const targetFunctionsArn: {
       [key: string]: string;
@@ -103,7 +128,9 @@ export class ScheduleFunction extends cdk.Construct {
     }
     return targetFunctionsArn;
   }
-
+  /**
+   * EventBridge rule
+   */
   private _createDispatchTargetRule(props?: ScheduleFunctionProps): events.Rule {
     return new events.Rule(this, 'DispatchTargetRule', {
       schedule: events.Schedule.rate(
@@ -117,7 +144,9 @@ export class ScheduleFunction extends cdk.Construct {
       enabled: props?.enabled ?? true,
     });
   }
-
+  /**
+   * Dispatch target function
+   */
   private _createDispatchTargetFunction(): NodejsFunction {
     const dispatchTargetFunction = new NodejsFunction(this, 'DispatchTargetFunction', {
       entry: `${LAMBDA_ASSETS_PATH}/dispatch-target/app.ts`,
@@ -162,7 +191,9 @@ export class ScheduleFunction extends cdk.Construct {
     );
     return dispatchTargetFunction;
   }
-
+  /**
+   * Schedule table
+   */
   private _createScheduleTable(): dynamodb.Table {
     const table = new dynamodb.Table(this, 'ScheduleTable', {
       partitionKey: {
@@ -201,7 +232,9 @@ export class ScheduleFunction extends cdk.Construct {
     });
     return table;
   }
-
+  /**
+   * Create schedule function
+   */
   private _createCreateScheduleFunction(): NodejsFunction {
     const createScheduleFunction = new NodejsFunction(this, 'CreateScheduleFunction', {
       entry: `${LAMBDA_ASSETS_PATH}/create-schedule/app.ts`,
@@ -233,7 +266,9 @@ export class ScheduleFunction extends cdk.Construct {
     );
     return createScheduleFunction;
   }
-
+  /**
+   * List schedules function
+   */
   private _createListSchedulesFunction(): NodejsFunction {
     const listSchedulesFunction = new NodejsFunction(this, 'ListScheduleFunction', {
       entry: `${LAMBDA_ASSETS_PATH}/list-schedules/app.ts`,
@@ -258,7 +293,9 @@ export class ScheduleFunction extends cdk.Construct {
     );
     return listSchedulesFunction;
   }
-
+  /**
+   * Fetch schedule function
+   */
   private _createFetchScheduleFunction(): NodejsFunction {
     const fetchScheduleFunction = new NodejsFunction(this, 'FetchScheduleFunction', {
       entry: `${LAMBDA_ASSETS_PATH}/fetch-schedule/app.ts`,
@@ -282,7 +319,9 @@ export class ScheduleFunction extends cdk.Construct {
     );
     return fetchScheduleFunction;
   }
-
+  /**
+   * Update schedule function
+   */
   private _createUpdateScheduleFunction(): NodejsFunction {
     const updateScheduleFunction = new NodejsFunction(this, 'UpdateScheduleFunction', {
       entry: `${LAMBDA_ASSETS_PATH}/update-schedule/app.ts`,
@@ -307,7 +346,9 @@ export class ScheduleFunction extends cdk.Construct {
     );
     return updateScheduleFunction;
   }
-
+  /**
+   * Delete schedule function
+   */
   private _createDeleteScheduleFunction(): NodejsFunction {
     const deleteScheduleFunction = new NodejsFunction(this, 'DeleteScheduleFunction', {
       entry: `${LAMBDA_ASSETS_PATH}/delete-schedule/app.ts`,
