@@ -35,9 +35,9 @@ new ScheduleFunction(scope: Construct, id: string, props?: ScheduleFunctionProps
 * **scope** (<code>[Construct](#aws-cdk-core-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[ScheduleFunctionProps](#softchef-cdk-schedule-function-schedulefunctionprops)</code>)  *No description*
-  * **dispatchTargetFunctionTimeout** (<code>[Duration](#aws-cdk-core-duration)</code>)  Specify the dispatch target function's timeout config. __*Optional*__
-  * **enabled** (<code>boolean</code>)  Enable / Disable event rule. __*Optional*__
-  * **recentMinutes** (<code>[Duration](#aws-cdk-core-duration)</code>)  Set recent minutes, ex: cdk.Duration.minutes(5) will limit the schedule must grand 5 minutes than now. __*Optional*__
+  * **dispatchTargetFunctionTimeout** (<code>[Duration](#aws-cdk-core-duration)</code>)  Specify the dispatch target function's timeout config. __*Default*__: cdk.Duration.seconds(10)
+  * **enabled** (<code>boolean</code>)  Enable / Disable event rule. __*Default*__: true
+  * **recentMinutes** (<code>[Duration](#aws-cdk-core-duration)</code>)  Set recent minutes, ex: cdk.Duration.minutes(5) will limit the schedule must grand 5 minutes than now. __*Default*__: cdk.Duration.minutes(3)
 
 
 
@@ -85,9 +85,9 @@ __Returns__:
 
 Name | Type | Description 
 -----|------|-------------
-**dispatchTargetFunctionTimeout**? | <code>[Duration](#aws-cdk-core-duration)</code> | Specify the dispatch target function's timeout config.<br/>__*Optional*__
-**enabled**? | <code>boolean</code> | Enable / Disable event rule.<br/>__*Optional*__
-**recentMinutes**? | <code>[Duration](#aws-cdk-core-duration)</code> | Set recent minutes, ex: cdk.Duration.minutes(5) will limit the schedule must grand 5 minutes than now.<br/>__*Optional*__
+**dispatchTargetFunctionTimeout**? | <code>[Duration](#aws-cdk-core-duration)</code> | Specify the dispatch target function's timeout config.<br/>__*Default*__: cdk.Duration.seconds(10)
+**enabled**? | <code>boolean</code> | Enable / Disable event rule.<br/>__*Default*__: true
+**recentMinutes**? | <code>[Duration](#aws-cdk-core-duration)</code> | Set recent minutes, ex: cdk.Duration.minutes(5) will limit the schedule must grand 5 minutes than now.<br/>__*Default*__: cdk.Duration.minutes(3)
 
 
 
