@@ -1,5 +1,6 @@
 {
   "name": "@softchef/cdk-schedule-function",
+  "description": "Manageable schedule to invoke lambda functions",
   "repository": {
     "type": "git",
     "url": "https://github.com/softchef/cdk-schedule-function.git"
@@ -33,7 +34,7 @@
     "organization": false
   },
   "devDependencies": {
-    "@aws-cdk/assert": "^1.114.0",
+    "@aws-cdk/assert": "^1.95.2",
     "@types/jest": "^26.0.24",
     "@types/node": "^10.17.0",
     "@typescript-eslint/eslint-plugin": "^4.28.4",
@@ -57,25 +58,25 @@
     "typescript": "^4.3.5"
   },
   "peerDependencies": {
-    "@aws-cdk/aws-apigateway": "^1.114.0",
-    "@aws-cdk/aws-dynamodb": "^1.114.0",
-    "@aws-cdk/aws-events": "^1.114.0",
-    "@aws-cdk/aws-events-targets": "^1.114.0",
-    "@aws-cdk/aws-iam": "^1.114.0",
-    "@aws-cdk/aws-lambda": "^1.114.0",
-    "@aws-cdk/aws-lambda-nodejs": "^1.114.0",
-    "@aws-cdk/core": "^1.114.0",
+    "@aws-cdk/aws-apigateway": "^1.95.2",
+    "@aws-cdk/aws-dynamodb": "^1.95.2",
+    "@aws-cdk/aws-events": "^1.95.2",
+    "@aws-cdk/aws-events-targets": "^1.95.2",
+    "@aws-cdk/aws-iam": "^1.95.2",
+    "@aws-cdk/aws-lambda": "^1.95.2",
+    "@aws-cdk/aws-lambda-nodejs": "^1.95.2",
+    "@aws-cdk/core": "^1.95.2",
     "constructs": "^3.2.27"
   },
   "dependencies": {
-    "@aws-cdk/aws-apigateway": "^1.114.0",
-    "@aws-cdk/aws-dynamodb": "^1.114.0",
-    "@aws-cdk/aws-events": "^1.114.0",
-    "@aws-cdk/aws-events-targets": "^1.114.0",
-    "@aws-cdk/aws-iam": "^1.114.0",
-    "@aws-cdk/aws-lambda": "^1.114.0",
-    "@aws-cdk/aws-lambda-nodejs": "^1.114.0",
-    "@aws-cdk/core": "^1.114.0",
+    "@aws-cdk/aws-apigateway": "^1.95.2",
+    "@aws-cdk/aws-dynamodb": "^1.95.2",
+    "@aws-cdk/aws-events": "^1.95.2",
+    "@aws-cdk/aws-events-targets": "^1.95.2",
+    "@aws-cdk/aws-iam": "^1.95.2",
+    "@aws-cdk/aws-lambda": "^1.95.2",
+    "@aws-cdk/aws-lambda-nodejs": "^1.95.2",
+    "@aws-cdk/core": "^1.95.2",
     "@aws-sdk/client-dynamodb": "^3.22.0",
     "@aws-sdk/client-eventbridge": "^3.22.0",
     "@aws-sdk/client-lambda": "^3.22.0",
@@ -105,6 +106,9 @@
   ],
   "keywords": [
     "cdk",
+    "events",
+    "function",
+    "lambda",
     "schedule"
   ],
   "main": "lib/index.js",

@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@aws-cdk/assert@^1.114.0":
+"@aws-cdk/assert@^1.95.2":
   version "1.115.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/assert/-/assert-1.115.0.tgz#31ac7667c7ffc658ddf816f774dcb2cc390afcf3"
   integrity sha512-sOSo2xFLFA/lFWOmsDllMgxDwxv6VuPfi7FueizlgdLZLaRyctEWH55rGm07C+ewej1AjFHp2mjp0SSpG2V3Cw==
@@ -21,7 +21,7 @@
     "@aws-cdk/cx-api" "1.115.0"
     constructs "^3.3.69"
 
-"@aws-cdk/aws-apigateway@1.115.0", "@aws-cdk/aws-apigateway@^1.114.0":
+"@aws-cdk/aws-apigateway@1.115.0", "@aws-cdk/aws-apigateway@^1.95.2":
   version "1.115.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-apigateway/-/aws-apigateway-1.115.0.tgz#56cf930d0adadcd2ed36f3810253462a441ca095"
   integrity sha512-/szXz2CGoTwZFSbuRXIeDYPe238LCzS2S2ZgCWt6Y26ok13+jCv/i5Sq0Oqj3sj2fYXTf5lZbwQKSvV/yo21vA==
@@ -203,7 +203,7 @@
     "@aws-cdk/core" "1.115.0"
     constructs "^3.3.69"
 
-"@aws-cdk/aws-cognito@1.115.0", "@aws-cdk/aws-cognito@^1.114.0":
+"@aws-cdk/aws-cognito@1.115.0", "@aws-cdk/aws-cognito@^1.95.2":
   version "1.115.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-cognito/-/aws-cognito-1.115.0.tgz#9fabc9d2afe00c250314c5a5152ed0aeef31ee50"
   integrity sha512-GIg79AhiVJzbf+EY8lZaQWXnMZS7FQDM4iB4bOHXbSwyQKwXdODf0Ckaz4lnLRuhZgzs1K+usdHZwJPysjtylw==
@@ -216,7 +216,7 @@
     constructs "^3.3.69"
     punycode "^2.1.1"
 
-"@aws-cdk/aws-dynamodb@^1.114.0":
+"@aws-cdk/aws-dynamodb@^1.95.2":
   version "1.115.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-dynamodb/-/aws-dynamodb-1.115.0.tgz#f987a403978ccba937d85219d42d9f9fea108412"
   integrity sha512-rBHszc4KA1xYy3xQgYDCke0wQbTrK7DPjB/SOzt2qRHH4zPcXJYriNdlyjBjGNzzjRlwU3MRO1S6PlUMHM/Jrw==
@@ -344,7 +344,7 @@
     "@aws-cdk/region-info" "1.115.0"
     constructs "^3.3.69"
 
-"@aws-cdk/aws-events-targets@^1.114.0":
+"@aws-cdk/aws-events-targets@^1.95.2":
   version "1.115.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-events-targets/-/aws-events-targets-1.115.0.tgz#e887193e15cb1ec827328ec62fd6baef6ed110ad"
   integrity sha512-7xXcQf0PZGlu5CjKG17igEVQg5laGAdKPcKUCgPQqPK0QK0VwFNT8DJLU5weoiBaRi/JHL3kJ7RW/0RAmn1xOg==
@@ -369,7 +369,7 @@
     "@aws-cdk/custom-resources" "1.115.0"
     constructs "^3.3.69"
 
-"@aws-cdk/aws-events@1.115.0", "@aws-cdk/aws-events@^1.114.0":
+"@aws-cdk/aws-events@1.115.0", "@aws-cdk/aws-events@^1.95.2":
   version "1.115.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-events/-/aws-events-1.115.0.tgz#df146461b3923f3c7eb10d9472b27b3d5143267e"
   integrity sha512-fpEjk2PAmZk9Kc5lGMbjeWGDVUO4FreKEcoKCgvTQA89eBB16QBK+psdf9nOa5uEj4obOvQ1VENPc3LByyOslA==
@@ -388,7 +388,7 @@
     "@aws-cdk/custom-resources" "1.115.0"
     constructs "^3.3.69"
 
-"@aws-cdk/aws-iam@1.115.0", "@aws-cdk/aws-iam@^1.114.0":
+"@aws-cdk/aws-iam@1.115.0", "@aws-cdk/aws-iam@^1.95.2":
   version "1.115.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-iam/-/aws-iam-1.115.0.tgz#0a7a3834757a1cb11cf74e5d6feb930a07261dc0"
   integrity sha512-NvY2kBe/iepCOWhKI4h31kxqjjN0+jtb1R4zH6GPH2qC0X/+ZaxP1OBOsO3yHluTtsFf/h4SdYjz9ukVTzEm8w==
@@ -427,7 +427,7 @@
     "@aws-cdk/cx-api" "1.115.0"
     constructs "^3.3.69"
 
-"@aws-cdk/aws-lambda-nodejs@^1.114.0":
+"@aws-cdk/aws-lambda-nodejs@^1.95.2":
   version "1.115.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-lambda-nodejs/-/aws-lambda-nodejs-1.115.0.tgz#32d15bdcae2b792aa56a8607252adf625ec5258e"
   integrity sha512-lvTrKlMqe0Fy31gmDJe//ctEX0KNfkz1qnQugPpBQLtlOQt8BWLMRsI6GO4GICJBxNt6bqywjtWt1OgMU5bi1w==
@@ -436,7 +436,7 @@
     "@aws-cdk/core" "1.115.0"
     constructs "^3.3.69"
 
-"@aws-cdk/aws-lambda@1.115.0", "@aws-cdk/aws-lambda@^1.114.0":
+"@aws-cdk/aws-lambda@1.115.0", "@aws-cdk/aws-lambda@^1.95.2":
   version "1.115.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-lambda/-/aws-lambda-1.115.0.tgz#f9f0765ccbc9ef07bf9a7d3160036d4780f3f35e"
   integrity sha512-K+emBDwQCbh/B8aSkE8M5MC5bkTEXOYPbR5TaD2dWE7DpHaNJ4eSF5CG2s+DjvRUg3FCC3h7qL56WEqFDjsyAg==
@@ -660,7 +660,7 @@
     string-width "^4.2.2"
     table "^6.7.1"
 
-"@aws-cdk/core@1.115.0", "@aws-cdk/core@^1.114.0":
+"@aws-cdk/core@1.115.0", "@aws-cdk/core@^1.95.2":
   version "1.115.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/core/-/core-1.115.0.tgz#0c9b8d8f14020eaa6296c1fde97fb559153bf5ac"
   integrity sha512-6agFP+WVqoUyhT2L3osOjrcWh39Ebqnghv/dAsneH5LZwml2vqZFvPDFTkUs9j/Oyv9KSrxO+ge3Ts23+3qgXw==
@@ -2140,15 +2140,15 @@
   integrity sha512-+iTbntw2IZPb/anVDbypzfQa+ay64MW0Zo8aJ8gZPWMMK6/OubMVb6lUPMagqjOPnmtauXnFCACVl3O7ogjeqQ==
 
 "@softchef/cdk-restapi@^0.1.5":
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@softchef/cdk-restapi/-/cdk-restapi-0.1.5.tgz#d466818f197fcf82d920c153c1ff7f995bfc72c8"
-  integrity sha512-YgLI/TzaMdgTX3udkBBsQbSkp547B+2iWOizEemnVGqDmVRJF55j518PIl62H4S6MOB6ZJob1l5fYSqRG5z09A==
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@softchef/cdk-restapi/-/cdk-restapi-0.1.6.tgz#bcd843cfa28027d15382d3df7bd5f90d5035c8f1"
+  integrity sha512-hc/IB340hu5MQWft/LHN+rInKJ/R0kQKwO2qnnsCjPxIoeL9MqbsiQjiJLb3D90JitLYmGuJEB8qdk563b7Zvw==
   dependencies:
-    "@aws-cdk/aws-apigateway" "^1.114.0"
-    "@aws-cdk/aws-cognito" "^1.114.0"
-    "@aws-cdk/aws-lambda" "^1.114.0"
-    "@aws-cdk/aws-lambda-nodejs" "^1.114.0"
-    "@aws-cdk/core" "^1.114.0"
+    "@aws-cdk/aws-apigateway" "^1.95.2"
+    "@aws-cdk/aws-cognito" "^1.95.2"
+    "@aws-cdk/aws-lambda" "^1.95.2"
+    "@aws-cdk/aws-lambda-nodejs" "^1.95.2"
+    "@aws-cdk/core" "^1.95.2"
 
 "@softchef/lambda-events@^0.0.8":
   version "0.0.8"
@@ -3120,9 +3120,9 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
 constructs@^3.3.69:
-  version "3.3.100"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.3.100.tgz#8f5ca56b877a70f3ee48cedc36a40c20fb919547"
-  integrity sha512-Eu5IIr9ArS70iKtGPGsB/UFF4YHt0mno9urlmyFnHwm2nfT7QG+p0CaepLwg1vixUHV+9LqQf+/ZZPcqT2VCMw==
+  version "3.3.101"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.3.101.tgz#ac92256d27621bbaa4be48c8e402712c9e0c1744"
+  integrity sha512-8c1OOAUA0pqQblA4/k3ozluaGkLRg3MFYhWPaKlSSDjs81xvQt0BUV+Eq0g6K/YWYmXKDhLrBrVFxnfsQF6dDA==
 
 conventional-changelog-angular@^5.0.12:
   version "5.0.12"
