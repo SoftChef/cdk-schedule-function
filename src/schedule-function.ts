@@ -16,24 +16,28 @@ const DEFAULT_DISPATCH_TARGET_FUNCTION_TIMEOUT = 10; // seconds
 export interface ScheduleFunctionProps {
   /**
    * Specify the dispatch target function's timeout config
+   * @default cdk.Duration.seconds(10)
    */
   readonly dispatchTargetFunctionTimeout?: cdk.Duration;
   /**
    * Enable / Disable event rule
+   * @default true
    */
   readonly enabled?: boolean;
   /**
    * Set recent minutes, ex: cdk.Duration.minutes(5) will limit the schedule must grand 5 minutes than now
+   * @default cdk.Duration.minutes(3)
    */
   readonly recentMinutes?: cdk.Duration;
 }
 
 export class ScheduleFunction extends cdk.Construct {
-
+  /**
+   * Specify all of target functions
+   */
   private _targetFunctions: {
     [key: string]: TargetFunctionProps;
   } = {};
-
   /**
    * Set recent minutes, ex: cdk.Duration.minutes(5) will limit the schedule must grand 5 minutes than now
    */
