@@ -1,12 +1,14 @@
-const { AwsCdkConstructLibrary, NpmAccess, ProjectType } = require('projen');
+const { AwsCdkConstructLibrary, DependenciesUpgradeMechanism, NpmAccess } = require('projen');
+
+const AUTOMATION_TOKEN = 'PROJEN_GITHUB_TOKEN';
+
 const project = new AwsCdkConstructLibrary({
-  author: 'softchef-iot-lab',
+  author: 'SoftChef',
   authorEmail: 'poke@softchef.com',
+  authorUrl: 'https://www.softchef.com',
+  authorOrganization: true,
   npmAccess: NpmAccess.PUBLIC,
-  projectType: ProjectType.LIB,
   cdkVersion: '1.95.2',
-  projenVersion: '0.27.6',
-  initialVersion: '1.0.0',
   defaultReleaseBranch: 'main',
   name: '@softchef/cdk-schedule-function',
   description: 'Manageable schedule to invoke lambda functions',
@@ -37,7 +39,19 @@ const project = new AwsCdkConstructLibrary({
   ],
   devDeps: [
     'aws-sdk-client-mock',
+    'esbuild',
   ],
+  depsUpgrade: DependenciesUpgradeMechanism.githubWorkflow({
+    ignoreProjen: false,
+    workflowOptions: {
+      labels: ['auto-approve', 'auto-merge'],
+      secret: AUTOMATION_TOKEN,
+    },
+  }),
+  autoApproveOptions: {
+    secret: 'GITHUB_TOKEN',
+    allowedUsernames: ['MinCheTsai'],
+  },
   keywords: [
     'cdk',
     'schedule',
@@ -57,6 +71,5 @@ const project = new AwsCdkConstructLibrary({
   gitignore: [
     'src/**/dist',
   ],
-  mergify: false,
 });
 project.synth();

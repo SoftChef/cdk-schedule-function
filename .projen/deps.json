@@ -27,6 +27,10 @@
       "type": "build"
     },
     {
+      "name": "esbuild",
+      "type": "build"
+    },
+    {
       "name": "eslint",
       "type": "build"
     },
@@ -78,7 +82,6 @@
     },
     {
       "name": "projen",
-      "version": "0.27.6",
       "type": "build"
     },
     {

@@ -16,7 +16,6 @@
     "bump": "npx projen bump",
     "unbump": "npx projen unbump",
     "upgrade-dependencies": "npx projen upgrade-dependencies",
-    "upgrade-projen": "npx projen upgrade-projen",
     "default": "npx projen default",
     "watch": "npx projen watch",
     "package": "npx projen package",
@@ -29,9 +28,10 @@
     "start": "npx projen start"
   },
   "author": {
-    "name": "softchef-iot-lab",
+    "name": "SoftChef",
     "email": "poke@softchef.com",
-    "organization": false
+    "url": "https://www.softchef.com",
+    "organization": true
   },
   "devDependencies": {
     "@aws-cdk/assert": "^1.95.2",
@@ -40,6 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
     "aws-sdk-client-mock": "^0.5.3",
+    "esbuild": "^0.12.16",
     "eslint": "^7.31.0",
     "eslint-import-resolver-node": "^0.3.4",
     "eslint-import-resolver-typescript": "^2.4.0",
