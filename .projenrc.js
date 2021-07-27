@@ -71,6 +71,5 @@ const project = new AwsCdkConstructLibrary({
   gitignore: [
     'src/**/dist',
   ],
-  mergify: false,
 });
 project.synth();
