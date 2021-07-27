@@ -8,7 +8,7 @@ ScheduleFunction is CDK Construct, provide lambda functions to manage your sched
 
 You can hook the lambda functions to your API Gateway to manage your schedules. The schedules will store in the DynamoDB table, you can tracking the schedules status, execution results, etc...
 
-![Architecture](https://github.com/SoftChef/cdk-schedule-function/blob/2cd36dd3baf8eee4ee706eed481149d8395d15ca/docs/schedule-function-architecture.png)
+![Architecture](docs/schedule-function-architecture.png)
 
 ---
 
