@@ -9,10 +9,9 @@ import * as cdk from '@aws-cdk/core';
 
 import { TargetFunctionProps } from './target-function';
 
+const LAMBDA_ASSETS_PATH = path.resolve(__dirname, '../lambda-assets');
 const DEFAULT_RECENT_MINUTES = 3; // minutes
 const DEFAULT_DISPATCH_TARGET_FUNCTION_TIMEOUT = 10; // seconds
-
-process.env.LAMBDA_ASSETS_PATH = path.resolve(__dirname, '../lambda-assets');
 
 export interface ScheduleFunctionProps {
   /**
@@ -154,7 +153,7 @@ export class ScheduleFunction extends cdk.Construct {
    */
   private _createDispatchTargetFunction(): NodejsFunction {
     const dispatchTargetFunction = new NodejsFunction(this, 'DispatchTargetFunction', {
-      entry: `${process.env.LAMBDA_ASSETS_PATH}/dispatch-target/app.ts`,
+      entry: `${LAMBDA_ASSETS_PATH}/dispatch-target/app.ts`,
       timeout: cdk.Duration.seconds(
         cdk.Lazy.uncachedNumber({
           produce: () => this._dispatchTargetFunctionTimeout.toSeconds(),
@@ -242,7 +241,7 @@ export class ScheduleFunction extends cdk.Construct {
    */
   private _createCreateScheduleFunction(): NodejsFunction {
     const createScheduleFunction = new NodejsFunction(this, 'CreateScheduleFunction', {
-      entry: `${process.env.LAMBDA_ASSETS_PATH}/create-schedule/app.ts`,
+      entry: `${LAMBDA_ASSETS_PATH}/create-schedule/app.ts`,
       environment: {
         SCHEDULE_TABLE_NAME: this.scheduleTable.tableName,
         TARGET_FUNCTIONS_NAME: cdk.Lazy.uncachedString({
@@ -276,7 +275,7 @@ export class ScheduleFunction extends cdk.Construct {
    */
   private _createListSchedulesFunction(): NodejsFunction {
     const listSchedulesFunction = new NodejsFunction(this, 'ListScheduleFunction', {
-      entry: `${process.env.LAMBDA_ASSETS_PATH}/list-schedules/app.ts`,
+      entry: `${LAMBDA_ASSETS_PATH}/list-schedules/app.ts`,
       environment: {
         SCHEDULE_TABLE_NAME: this.scheduleTable.tableName,
       },
@@ -303,7 +302,7 @@ export class ScheduleFunction extends cdk.Construct {
    */
   private _createFetchScheduleFunction(): NodejsFunction {
     const fetchScheduleFunction = new NodejsFunction(this, 'FetchScheduleFunction', {
-      entry: `${process.env.LAMBDA_ASSETS_PATH}/fetch-schedule/app.ts`,
+      entry: `${LAMBDA_ASSETS_PATH}/fetch-schedule/app.ts`,
       environment: {
         SCHEDULE_TABLE_NAME: this.scheduleTable.tableName,
       },
@@ -329,7 +328,7 @@ export class ScheduleFunction extends cdk.Construct {
    */
   private _createUpdateScheduleFunction(): NodejsFunction {
     const updateScheduleFunction = new NodejsFunction(this, 'UpdateScheduleFunction', {
-      entry: `${process.env.LAMBDA_ASSETS_PATH}/update-schedule/app.ts`,
+      entry: `${LAMBDA_ASSETS_PATH}/update-schedule/app.ts`,
       environment: {
         SCHEDULE_TABLE_NAME: this.scheduleTable.tableName,
       },
@@ -356,7 +355,7 @@ export class ScheduleFunction extends cdk.Construct {
    */
   private _createDeleteScheduleFunction(): NodejsFunction {
     const deleteScheduleFunction = new NodejsFunction(this, 'DeleteScheduleFunction', {
-      entry: `${process.env.LAMBDA_ASSETS_PATH}/delete-schedule/app.ts`,
+      entry: `${LAMBDA_ASSETS_PATH}/delete-schedule/app.ts`,
       environment: {
         SCHEDULE_TABLE_NAME: this.scheduleTable.tableName,
       },

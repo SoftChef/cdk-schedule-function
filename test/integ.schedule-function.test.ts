@@ -6,10 +6,6 @@ import * as lambda from '@aws-cdk/aws-lambda';
 import * as cdk from '@aws-cdk/core';
 import { ScheduleFunction } from '../src/index';
 
-process.env.LAMBDA_ASSETS_PATH = path.resolve(__dirname, '../lambda-assets');
-
-console.log(fs.readdirSync(process.env.LAMBDA_ASSETS_PATH));
-
 const fnGetAttArn = (arn: string): { [key: string]: string[] } => {
   return {
     'Fn::GetAtt': [arn, 'Arn'],
