@@ -1,3 +1,4 @@
+import * as fs from 'fs';
 import * as path from 'path';
 import { SynthUtils } from '@aws-cdk/assert';
 import '@aws-cdk/assert/jest';
@@ -5,7 +6,9 @@ import * as lambda from '@aws-cdk/aws-lambda';
 import * as cdk from '@aws-cdk/core';
 import { ScheduleFunction } from '../src/index';
 
-process.env.LAMBDA_ASSETS_PATH = path.resolve(__dirname, '../lambda-assets');
+process.env.LAMBDA_ASSETS_PATH = path.resolve(__dirname, '../../lambda-assets');
+
+console.log(fs.readdirSync(path.resolve(__dirname, '../lambda-assets')));
 
 const fnGetAttArn = (arn: string): { [key: string]: string[] } => {
   return {
