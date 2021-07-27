@@ -51,18 +51,6 @@ Object {
       "Description": "S3 key for asset version \\"863cc2fde0fea4da99b3e987cae908f9d02efc9a4ae80512038329a049a37ef0\\"",
       "Type": "String",
     },
-    "AssetParametersbaa47053daee97ce436b382a771ce649a6e8f394822fa93c460cc13a4fe4e9e5ArtifactHashD843EAF9": Object {
-      "Description": "Artifact hash for asset \\"baa47053daee97ce436b382a771ce649a6e8f394822fa93c460cc13a4fe4e9e5\\"",
-      "Type": "String",
-    },
-    "AssetParametersbaa47053daee97ce436b382a771ce649a6e8f394822fa93c460cc13a4fe4e9e5S3BucketDCBFDD28": Object {
-      "Description": "S3 bucket for asset \\"baa47053daee97ce436b382a771ce649a6e8f394822fa93c460cc13a4fe4e9e5\\"",
-      "Type": "String",
-    },
-    "AssetParametersbaa47053daee97ce436b382a771ce649a6e8f394822fa93c460cc13a4fe4e9e5S3VersionKey9B333912": Object {
-      "Description": "S3 key for asset version \\"baa47053daee97ce436b382a771ce649a6e8f394822fa93c460cc13a4fe4e9e5\\"",
-      "Type": "String",
-    },
     "AssetParameterscd90c21820364a5e601e36a9870a4036f1d66f8dc3486970eda3f7212c320738ArtifactHash9EE11F57": Object {
       "Description": "Artifact hash for asset \\"cd90c21820364a5e601e36a9870a4036f1d66f8dc3486970eda3f7212c320738\\"",
       "Type": "String",
@@ -981,47 +969,14 @@ Object {
       ],
       "Properties": Object {
         "Code": Object {
-          "S3Bucket": Object {
-            "Ref": "AssetParametersbaa47053daee97ce436b382a771ce649a6e8f394822fa93c460cc13a4fe4e9e5S3BucketDCBFDD28",
-          },
-          "S3Key": Object {
-            "Fn::Join": Array [
-              "",
-              Array [
-                Object {
-                  "Fn::Select": Array [
-                    0,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParametersbaa47053daee97ce436b382a771ce649a6e8f394822fa93c460cc13a4fe4e9e5S3VersionKey9B333912",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                Object {
-                  "Fn::Select": Array [
-                    1,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParametersbaa47053daee97ce436b382a771ce649a6e8f394822fa93c460cc13a4fe4e9e5S3VersionKey9B333912",
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            ],
-          },
-        },
-        "Environment": Object {
-          "Variables": Object {
-            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
-          },
+          "ZipFile": "
+      export async function handler() {
+        return {
+          success: true,
+          result: event.context,
+        };
+      }
+    ",
         },
         "Handler": "index.handler",
         "Role": Object {
@@ -1030,7 +985,7 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs12.x",
       },
       "Type": "AWS::Lambda::Function",
     },

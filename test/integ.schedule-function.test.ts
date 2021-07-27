@@ -1,6 +1,6 @@
 import { SynthUtils } from '@aws-cdk/assert';
 import '@aws-cdk/assert/jest';
-import * as lambda from '@aws-cdk/aws-lambda-nodejs';
+import * as lambda from '@aws-cdk/aws-lambda';
 import * as cdk from '@aws-cdk/core';
 import { ScheduleFunction } from '../src/index';
 
@@ -35,8 +35,17 @@ const expected = {
 test('minimal usage', () => {
   const app = new cdk.App();
   const stack = new cdk.Stack(app, 'demo-stack');
-  const testTargetFunction = new lambda.NodejsFunction(stack, 'TestTarget', {
-    entry: './src/demo/test-target-function/app.ts',
+  const testTargetFunction = new lambda.Function(stack, 'TestTarget', {
+    runtime: lambda.Runtime.NODEJS_12_X,
+    handler: 'index.handler',
+    code: new lambda.InlineCode(`
+      export async function handler() {
+        return {
+          success: true,
+          result: event.context,
+        };
+      }
+    `),
   });
   const scheduleFunction = new ScheduleFunction(stack, 'ScheduleFunction', {
     dispatchTargetFunctionTimeout: expected.dispatchTargetFunctionTimeout,
