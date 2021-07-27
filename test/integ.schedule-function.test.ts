@@ -1,5 +1,3 @@
-import * as fs from 'fs';
-import * as path from 'path';
 import { SynthUtils } from '@aws-cdk/assert';
 import '@aws-cdk/assert/jest';
 import * as lambda from '@aws-cdk/aws-lambda';
