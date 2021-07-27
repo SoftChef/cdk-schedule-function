@@ -97,8 +97,7 @@ export async function handler() {
         new UpdateCommand({
           TableName: SCHEDULE_TABLE_NAME,
           Key: {
-            scheduledAt: schedule.scheduledAt,
-            uuid: schedule.uuid,
+            scheduleId,
           },
           UpdateExpression: 'SET #response = :response, #status = :status, #updatedAt = :updatedAt',
           ExpressionAttributeNames: {
