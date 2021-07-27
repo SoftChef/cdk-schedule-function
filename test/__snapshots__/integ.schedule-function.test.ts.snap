@@ -1,0 +1,1070 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`minimal usage 1`] = `
+Object {
+  "Parameters": Object {
+    "AssetParameters1d9152fc8b16cb66b06efe225614d151222908fa7dd23bbf52b828edee9bff59ArtifactHash7361DAF0": Object {
+      "Description": "Artifact hash for asset \\"1d9152fc8b16cb66b06efe225614d151222908fa7dd23bbf52b828edee9bff59\\"",
+      "Type": "String",
+    },
+    "AssetParameters1d9152fc8b16cb66b06efe225614d151222908fa7dd23bbf52b828edee9bff59S3Bucket07349C1D": Object {
+      "Description": "S3 bucket for asset \\"1d9152fc8b16cb66b06efe225614d151222908fa7dd23bbf52b828edee9bff59\\"",
+      "Type": "String",
+    },
+    "AssetParameters1d9152fc8b16cb66b06efe225614d151222908fa7dd23bbf52b828edee9bff59S3VersionKey4B874C77": Object {
+      "Description": "S3 key for asset version \\"1d9152fc8b16cb66b06efe225614d151222908fa7dd23bbf52b828edee9bff59\\"",
+      "Type": "String",
+    },
+    "AssetParameters39f5f0159c89780f50ece927b22aec88c055be0963e613ba24c7ed32e796961eArtifactHash7F9A4DE0": Object {
+      "Description": "Artifact hash for asset \\"39f5f0159c89780f50ece927b22aec88c055be0963e613ba24c7ed32e796961e\\"",
+      "Type": "String",
+    },
+    "AssetParameters39f5f0159c89780f50ece927b22aec88c055be0963e613ba24c7ed32e796961eS3Bucket4E739737": Object {
+      "Description": "S3 bucket for asset \\"39f5f0159c89780f50ece927b22aec88c055be0963e613ba24c7ed32e796961e\\"",
+      "Type": "String",
+    },
+    "AssetParameters39f5f0159c89780f50ece927b22aec88c055be0963e613ba24c7ed32e796961eS3VersionKey94D9D135": Object {
+      "Description": "S3 key for asset version \\"39f5f0159c89780f50ece927b22aec88c055be0963e613ba24c7ed32e796961e\\"",
+      "Type": "String",
+    },
+    "AssetParameters778e34ccfdb38480c36efe976b112696fe72d380b0f6cd646e816fb53da0bcd2ArtifactHash25B1175B": Object {
+      "Description": "Artifact hash for asset \\"778e34ccfdb38480c36efe976b112696fe72d380b0f6cd646e816fb53da0bcd2\\"",
+      "Type": "String",
+    },
+    "AssetParameters778e34ccfdb38480c36efe976b112696fe72d380b0f6cd646e816fb53da0bcd2S3Bucket8677FFB5": Object {
+      "Description": "S3 bucket for asset \\"778e34ccfdb38480c36efe976b112696fe72d380b0f6cd646e816fb53da0bcd2\\"",
+      "Type": "String",
+    },
+    "AssetParameters778e34ccfdb38480c36efe976b112696fe72d380b0f6cd646e816fb53da0bcd2S3VersionKey2CE4FA77": Object {
+      "Description": "S3 key for asset version \\"778e34ccfdb38480c36efe976b112696fe72d380b0f6cd646e816fb53da0bcd2\\"",
+      "Type": "String",
+    },
+    "AssetParameters863cc2fde0fea4da99b3e987cae908f9d02efc9a4ae80512038329a049a37ef0ArtifactHash59A0FB3C": Object {
+      "Description": "Artifact hash for asset \\"863cc2fde0fea4da99b3e987cae908f9d02efc9a4ae80512038329a049a37ef0\\"",
+      "Type": "String",
+    },
+    "AssetParameters863cc2fde0fea4da99b3e987cae908f9d02efc9a4ae80512038329a049a37ef0S3Bucket306D6137": Object {
+      "Description": "S3 bucket for asset \\"863cc2fde0fea4da99b3e987cae908f9d02efc9a4ae80512038329a049a37ef0\\"",
+      "Type": "String",
+    },
+    "AssetParameters863cc2fde0fea4da99b3e987cae908f9d02efc9a4ae80512038329a049a37ef0S3VersionKey63E8B044": Object {
+      "Description": "S3 key for asset version \\"863cc2fde0fea4da99b3e987cae908f9d02efc9a4ae80512038329a049a37ef0\\"",
+      "Type": "String",
+    },
+    "AssetParametersbaa47053daee97ce436b382a771ce649a6e8f394822fa93c460cc13a4fe4e9e5ArtifactHashD843EAF9": Object {
+      "Description": "Artifact hash for asset \\"baa47053daee97ce436b382a771ce649a6e8f394822fa93c460cc13a4fe4e9e5\\"",
+      "Type": "String",
+    },
+    "AssetParametersbaa47053daee97ce436b382a771ce649a6e8f394822fa93c460cc13a4fe4e9e5S3BucketDCBFDD28": Object {
+      "Description": "S3 bucket for asset \\"baa47053daee97ce436b382a771ce649a6e8f394822fa93c460cc13a4fe4e9e5\\"",
+      "Type": "String",
+    },
+    "AssetParametersbaa47053daee97ce436b382a771ce649a6e8f394822fa93c460cc13a4fe4e9e5S3VersionKey9B333912": Object {
+      "Description": "S3 key for asset version \\"baa47053daee97ce436b382a771ce649a6e8f394822fa93c460cc13a4fe4e9e5\\"",
+      "Type": "String",
+    },
+    "AssetParameterscd90c21820364a5e601e36a9870a4036f1d66f8dc3486970eda3f7212c320738ArtifactHash9EE11F57": Object {
+      "Description": "Artifact hash for asset \\"cd90c21820364a5e601e36a9870a4036f1d66f8dc3486970eda3f7212c320738\\"",
+      "Type": "String",
+    },
+    "AssetParameterscd90c21820364a5e601e36a9870a4036f1d66f8dc3486970eda3f7212c320738S3BucketDAE11C6C": Object {
+      "Description": "S3 bucket for asset \\"cd90c21820364a5e601e36a9870a4036f1d66f8dc3486970eda3f7212c320738\\"",
+      "Type": "String",
+    },
+    "AssetParameterscd90c21820364a5e601e36a9870a4036f1d66f8dc3486970eda3f7212c320738S3VersionKey03DC76A7": Object {
+      "Description": "S3 key for asset version \\"cd90c21820364a5e601e36a9870a4036f1d66f8dc3486970eda3f7212c320738\\"",
+      "Type": "String",
+    },
+    "AssetParametersed7e9a6d3115849cb30bf3805cf50f04d18947d0e1729c6961185c011f7b51f6ArtifactHashF080B268": Object {
+      "Description": "Artifact hash for asset \\"ed7e9a6d3115849cb30bf3805cf50f04d18947d0e1729c6961185c011f7b51f6\\"",
+      "Type": "String",
+    },
+    "AssetParametersed7e9a6d3115849cb30bf3805cf50f04d18947d0e1729c6961185c011f7b51f6S3Bucket21B31E42": Object {
+      "Description": "S3 bucket for asset \\"ed7e9a6d3115849cb30bf3805cf50f04d18947d0e1729c6961185c011f7b51f6\\"",
+      "Type": "String",
+    },
+    "AssetParametersed7e9a6d3115849cb30bf3805cf50f04d18947d0e1729c6961185c011f7b51f6S3VersionKeyCABCA1DE": Object {
+      "Description": "S3 key for asset version \\"ed7e9a6d3115849cb30bf3805cf50f04d18947d0e1729c6961185c011f7b51f6\\"",
+      "Type": "String",
+    },
+  },
+  "Resources": Object {
+    "ScheduleFunctionCreateScheduleFunction839A34E1": Object {
+      "DependsOn": Array [
+        "ScheduleFunctionCreateScheduleFunctionServiceRole5CB97B76",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameterscd90c21820364a5e601e36a9870a4036f1d66f8dc3486970eda3f7212c320738S3BucketDAE11C6C",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameterscd90c21820364a5e601e36a9870a4036f1d66f8dc3486970eda3f7212c320738S3VersionKey03DC76A7",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameterscd90c21820364a5e601e36a9870a4036f1d66f8dc3486970eda3f7212c320738S3VersionKey03DC76A7",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Environment": Object {
+          "Variables": Object {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "RECENT_MINUTES": "30",
+            "SCHEDULE_TABLE_NAME": Object {
+              "Ref": "ScheduleFunctionScheduleTable60883DB8",
+            },
+            "TARGET_FUNCTIONS_NAME": Object {
+              "Fn::Join": Array [
+                "",
+                Array [
+                  "{\\"TestTarget\\":\\"",
+                  Object {
+                    "Ref": "TestTarget4042A7F7",
+                  },
+                  "\\"}",
+                ],
+              ],
+            },
+          },
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "ScheduleFunctionCreateScheduleFunctionServiceRole5CB97B76",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs14.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "ScheduleFunctionCreateScheduleFunctionServiceRole5CB97B76": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "ScheduleFunctionDeleteScheduleFunctionC18DF41E": Object {
+      "DependsOn": Array [
+        "ScheduleFunctionDeleteScheduleFunctionServiceRoleE5D76AB9",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameters1d9152fc8b16cb66b06efe225614d151222908fa7dd23bbf52b828edee9bff59S3Bucket07349C1D",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters1d9152fc8b16cb66b06efe225614d151222908fa7dd23bbf52b828edee9bff59S3VersionKey4B874C77",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters1d9152fc8b16cb66b06efe225614d151222908fa7dd23bbf52b828edee9bff59S3VersionKey4B874C77",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Environment": Object {
+          "Variables": Object {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "SCHEDULE_TABLE_NAME": Object {
+              "Ref": "ScheduleFunctionScheduleTable60883DB8",
+            },
+          },
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "ScheduleFunctionDeleteScheduleFunctionServiceRoleE5D76AB9",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs14.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "ScheduleFunctionDeleteScheduleFunctionServiceRoleE5D76AB9": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "ScheduleFunctionDispatchTargetFunction6A796318": Object {
+      "DependsOn": Array [
+        "ScheduleFunctionDispatchTargetFunctionServiceRole89FC967C",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameters39f5f0159c89780f50ece927b22aec88c055be0963e613ba24c7ed32e796961eS3Bucket4E739737",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters39f5f0159c89780f50ece927b22aec88c055be0963e613ba24c7ed32e796961eS3VersionKey94D9D135",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters39f5f0159c89780f50ece927b22aec88c055be0963e613ba24c7ed32e796961eS3VersionKey94D9D135",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Environment": Object {
+          "Variables": Object {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "SCHEDULE_TABLE_NAME": Object {
+              "Ref": "ScheduleFunctionScheduleTable60883DB8",
+            },
+            "TARGET_FUNCTIONS_NAME": Object {
+              "Fn::Join": Array [
+                "",
+                Array [
+                  "{\\"TestTarget\\":\\"",
+                  Object {
+                    "Ref": "TestTarget4042A7F7",
+                  },
+                  "\\"}",
+                ],
+              ],
+            },
+          },
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "ScheduleFunctionDispatchTargetFunctionServiceRole89FC967C",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs14.x",
+        "Timeout": 30,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "ScheduleFunctionDispatchTargetFunctionServiceRole89FC967C": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "ScheduleFunctionDispatchTargetRuleAllowEventRuledemostackScheduleFunctionDispatchTargetFunction046F149B139F2B36": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "ScheduleFunctionDispatchTargetFunction6A796318",
+            "Arn",
+          ],
+        },
+        "Principal": "events.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::GetAtt": Array [
+            "ScheduleFunctionDispatchTargetRuleE8DBE1C8",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "ScheduleFunctionDispatchTargetRuleE8DBE1C8": Object {
+      "Properties": Object {
+        "ScheduleExpression": "rate(1 minute)",
+        "State": "ENABLED",
+        "Targets": Array [
+          Object {
+            "Arn": Object {
+              "Fn::GetAtt": Array [
+                "ScheduleFunctionDispatchTargetFunction6A796318",
+                "Arn",
+              ],
+            },
+            "Id": "Target0",
+          },
+        ],
+      },
+      "Type": "AWS::Events::Rule",
+    },
+    "ScheduleFunctionFetchScheduleFunctionD70172FC": Object {
+      "DependsOn": Array [
+        "ScheduleFunctionFetchScheduleFunctionServiceRole0891609B",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParametersed7e9a6d3115849cb30bf3805cf50f04d18947d0e1729c6961185c011f7b51f6S3Bucket21B31E42",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParametersed7e9a6d3115849cb30bf3805cf50f04d18947d0e1729c6961185c011f7b51f6S3VersionKeyCABCA1DE",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParametersed7e9a6d3115849cb30bf3805cf50f04d18947d0e1729c6961185c011f7b51f6S3VersionKeyCABCA1DE",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Environment": Object {
+          "Variables": Object {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "SCHEDULE_TABLE_NAME": Object {
+              "Ref": "ScheduleFunctionScheduleTable60883DB8",
+            },
+          },
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "ScheduleFunctionFetchScheduleFunctionServiceRole0891609B",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs14.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "ScheduleFunctionFetchScheduleFunctionServiceRole0891609B": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "ScheduleFunctionListScheduleFunction45B7EF79": Object {
+      "DependsOn": Array [
+        "ScheduleFunctionListScheduleFunctionServiceRole5EA5341C",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameters778e34ccfdb38480c36efe976b112696fe72d380b0f6cd646e816fb53da0bcd2S3Bucket8677FFB5",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters778e34ccfdb38480c36efe976b112696fe72d380b0f6cd646e816fb53da0bcd2S3VersionKey2CE4FA77",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters778e34ccfdb38480c36efe976b112696fe72d380b0f6cd646e816fb53da0bcd2S3VersionKey2CE4FA77",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Environment": Object {
+          "Variables": Object {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "SCHEDULE_TABLE_NAME": Object {
+              "Ref": "ScheduleFunctionScheduleTable60883DB8",
+            },
+          },
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "ScheduleFunctionListScheduleFunctionServiceRole5EA5341C",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs14.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "ScheduleFunctionListScheduleFunctionServiceRole5EA5341C": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "ScheduleFunctionScheduleTable60883DB8": Object {
+      "DeletionPolicy": "Retain",
+      "Properties": Object {
+        "AttributeDefinitions": Array [
+          Object {
+            "AttributeName": "scheduleId",
+            "AttributeType": "S",
+          },
+          Object {
+            "AttributeName": "scheduledAt",
+            "AttributeType": "S",
+          },
+          Object {
+            "AttributeName": "targetType",
+            "AttributeType": "S",
+          },
+          Object {
+            "AttributeName": "targetId",
+            "AttributeType": "S",
+          },
+        ],
+        "GlobalSecondaryIndexes": Array [
+          Object {
+            "IndexName": "Query-By-ScheduledAt",
+            "KeySchema": Array [
+              Object {
+                "AttributeName": "scheduledAt",
+                "KeyType": "HASH",
+              },
+            ],
+            "Projection": Object {
+              "ProjectionType": "ALL",
+            },
+            "ProvisionedThroughput": Object {
+              "ReadCapacityUnits": 1,
+              "WriteCapacityUnits": 1,
+            },
+          },
+          Object {
+            "IndexName": "Query-By-TargetType",
+            "KeySchema": Array [
+              Object {
+                "AttributeName": "targetType",
+                "KeyType": "HASH",
+              },
+            ],
+            "Projection": Object {
+              "ProjectionType": "ALL",
+            },
+            "ProvisionedThroughput": Object {
+              "ReadCapacityUnits": 1,
+              "WriteCapacityUnits": 1,
+            },
+          },
+          Object {
+            "IndexName": "Query-By-TargetId",
+            "KeySchema": Array [
+              Object {
+                "AttributeName": "targetId",
+                "KeyType": "HASH",
+              },
+            ],
+            "Projection": Object {
+              "ProjectionType": "ALL",
+            },
+            "ProvisionedThroughput": Object {
+              "ReadCapacityUnits": 1,
+              "WriteCapacityUnits": 1,
+            },
+          },
+        ],
+        "KeySchema": Array [
+          Object {
+            "AttributeName": "scheduleId",
+            "KeyType": "HASH",
+          },
+        ],
+        "ProvisionedThroughput": Object {
+          "ReadCapacityUnits": 1,
+          "WriteCapacityUnits": 1,
+        },
+      },
+      "Type": "AWS::DynamoDB::Table",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "ScheduleFunctionUpdateScheduleFunction2DA1CD25": Object {
+      "DependsOn": Array [
+        "ScheduleFunctionUpdateScheduleFunctionServiceRoleCAC6BD24",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameters863cc2fde0fea4da99b3e987cae908f9d02efc9a4ae80512038329a049a37ef0S3Bucket306D6137",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters863cc2fde0fea4da99b3e987cae908f9d02efc9a4ae80512038329a049a37ef0S3VersionKey63E8B044",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters863cc2fde0fea4da99b3e987cae908f9d02efc9a4ae80512038329a049a37ef0S3VersionKey63E8B044",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Environment": Object {
+          "Variables": Object {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "SCHEDULE_TABLE_NAME": Object {
+              "Ref": "ScheduleFunctionScheduleTable60883DB8",
+            },
+          },
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "ScheduleFunctionUpdateScheduleFunctionServiceRoleCAC6BD24",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs14.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "ScheduleFunctionUpdateScheduleFunctionServiceRoleCAC6BD24": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "ScheduleFunctiondeleteschedulepolicy0E23AE84": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": Array [
+                "dynamodb:GetItem",
+                "dynamodb:DeleteItem",
+              ],
+              "Effect": "Allow",
+              "Resource": Object {
+                "Fn::GetAtt": Array [
+                  "ScheduleFunctionScheduleTable60883DB8",
+                  "Arn",
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "ScheduleFunctiondeleteschedulepolicy0E23AE84",
+        "Roles": Array [
+          Object {
+            "Ref": "ScheduleFunctionDeleteScheduleFunctionServiceRoleE5D76AB9",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "ScheduleFunctiondispatchschedulepolicy7AE2621D": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": Array [
+                "dynamodb:Query",
+                "dynamodb:UpdateItem",
+              ],
+              "Effect": "Allow",
+              "Resource": Object {
+                "Fn::GetAtt": Array [
+                  "ScheduleFunctionScheduleTable60883DB8",
+                  "Arn",
+                ],
+              },
+            },
+            Object {
+              "Action": "lambda:InvokeFunction",
+              "Effect": "Allow",
+              "Resource": Array [
+                Object {
+                  "Fn::GetAtt": Array [
+                    "TestTarget4042A7F7",
+                    "Arn",
+                  ],
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "ScheduleFunctiondispatchschedulepolicy7AE2621D",
+        "Roles": Array [
+          Object {
+            "Ref": "ScheduleFunctionDispatchTargetFunctionServiceRole89FC967C",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "ScheduleFunctionfetchschedulepolicy9B976A4F": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "dynamodb:GetItem",
+              "Effect": "Allow",
+              "Resource": Object {
+                "Fn::GetAtt": Array [
+                  "ScheduleFunctionScheduleTable60883DB8",
+                  "Arn",
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "ScheduleFunctionfetchschedulepolicy9B976A4F",
+        "Roles": Array [
+          Object {
+            "Ref": "ScheduleFunctionFetchScheduleFunctionServiceRole0891609B",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "ScheduleFunctionlistschedulespolicy36680AA3": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": Array [
+                "dynamodb:Query",
+                "dynamodb:Scan",
+              ],
+              "Effect": "Allow",
+              "Resource": Object {
+                "Fn::GetAtt": Array [
+                  "ScheduleFunctionScheduleTable60883DB8",
+                  "Arn",
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "ScheduleFunctionlistschedulespolicy36680AA3",
+        "Roles": Array [
+          Object {
+            "Ref": "ScheduleFunctionListScheduleFunctionServiceRole5EA5341C",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "ScheduleFunctionputschedulepolicy9BCF4420": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "dynamodb:BatchWriteItem",
+              "Effect": "Allow",
+              "Resource": Object {
+                "Fn::GetAtt": Array [
+                  "ScheduleFunctionScheduleTable60883DB8",
+                  "Arn",
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "ScheduleFunctionputschedulepolicy9BCF4420",
+        "Roles": Array [
+          Object {
+            "Ref": "ScheduleFunctionCreateScheduleFunctionServiceRole5CB97B76",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "ScheduleFunctionupdateschedulepolicy9AC28D81": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": Array [
+                "dynamodb:GetItem",
+                "dynamodb:UpdateItem",
+              ],
+              "Effect": "Allow",
+              "Resource": Object {
+                "Fn::GetAtt": Array [
+                  "ScheduleFunctionScheduleTable60883DB8",
+                  "Arn",
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "ScheduleFunctionupdateschedulepolicy9AC28D81",
+        "Roles": Array [
+          Object {
+            "Ref": "ScheduleFunctionUpdateScheduleFunctionServiceRoleCAC6BD24",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "TestTarget4042A7F7": Object {
+      "DependsOn": Array [
+        "TestTargetServiceRoleED06BFE8",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParametersbaa47053daee97ce436b382a771ce649a6e8f394822fa93c460cc13a4fe4e9e5S3BucketDCBFDD28",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParametersbaa47053daee97ce436b382a771ce649a6e8f394822fa93c460cc13a4fe4e9e5S3VersionKey9B333912",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParametersbaa47053daee97ce436b382a771ce649a6e8f394822fa93c460cc13a4fe4e9e5S3VersionKey9B333912",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Environment": Object {
+          "Variables": Object {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+          },
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "TestTargetServiceRoleED06BFE8",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs14.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "TestTargetServiceRoleED06BFE8": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+  },
+}
+`;
