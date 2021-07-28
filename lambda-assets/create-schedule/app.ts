@@ -63,11 +63,7 @@ export async function handler(event: { [key: string]: any }) {
       const schedule: dayjs.Dayjs = dayjs(timestamp).utc();
       const scheduledAt = schedule.format('YYYYMMDDHHmm');
       const uuid = uuidv4();
-      const parameters: { [key: string]: any } = {};
-      if (request.has('targetId')) {
-        parameters.targetId = targetId;
-      };
-      return {
+      const scheduleItem: ScheduleItem = {
         scheduleId: md5.update(`${scheduledAt}-${uuid}`).digest('hex'),
         scheduledAt: scheduledAt,
         uuid: uuid,
@@ -77,8 +73,11 @@ export async function handler(event: { [key: string]: any }) {
         context: context,
         status: 'pending',
         createdAt: dayjs().valueOf(),
-        ...parameters,
       };
+      if (request.has('targetId')) {
+        scheduleItem.targetId = targetId;
+      };
+      return scheduleItem;
     });
     const ddbDocClient: DynamoDBDocumentClient = DynamoDBDocumentClient.from(
       new DynamoDBClient({}),
