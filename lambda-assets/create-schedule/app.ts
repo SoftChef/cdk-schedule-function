@@ -55,7 +55,7 @@ export async function handler(event: { [key: string]: any }) {
       return response.error(validated.details, 422);
     }
     const targetType: string = request.input('targetType');
-    const targetId: string = request.input('targetId');
+    const targetId: string = request.input('targetId', '');
     const description: string = request.input('description', '');
     const context: { [key: string]: any } = request.input('context', {});
     const schedules: ScheduleItem[] = request.input('schedules', []).map((timestamp: number): ScheduleItem => {
@@ -73,9 +73,6 @@ export async function handler(event: { [key: string]: any }) {
         context: context,
         status: 'pending',
         createdAt: dayjs().valueOf(),
-      };
-      if (request.has('targetId')) {
-        scheduleItem.targetId = targetId;
       };
       return scheduleItem;
     });
