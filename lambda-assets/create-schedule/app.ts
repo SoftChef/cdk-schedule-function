@@ -55,7 +55,7 @@ export async function handler(event: { [key: string]: any }) {
       return response.error(validated.details, 422);
     }
     const targetType: string = request.input('targetType');
-    const targetId: string = request.input('targetId');
+    const targetId: string = request.input('targetId', '');
     const description: string = request.input('description', '');
     const context: { [key: string]: any } = request.input('context', {});
     const schedules: ScheduleItem[] = request.input('schedules', []).map((timestamp: number): ScheduleItem => {
@@ -63,7 +63,7 @@ export async function handler(event: { [key: string]: any }) {
       const schedule: dayjs.Dayjs = dayjs(timestamp).utc();
       const scheduledAt = schedule.format('YYYYMMDDHHmm');
       const uuid = uuidv4();
-      return {
+      const scheduleItem: ScheduleItem = {
         scheduleId: md5.update(`${scheduledAt}-${uuid}`).digest('hex'),
         scheduledAt: scheduledAt,
         uuid: uuid,
@@ -74,6 +74,7 @@ export async function handler(event: { [key: string]: any }) {
         status: 'pending',
         createdAt: dayjs().valueOf(),
       };
+      return scheduleItem;
     });
     const ddbDocClient: DynamoDBDocumentClient = DynamoDBDocumentClient.from(
       new DynamoDBClient({}),
