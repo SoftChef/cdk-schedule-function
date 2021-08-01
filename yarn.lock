@@ -2144,10 +2144,10 @@
   resolved "https://registry.yarnpkg.com/@sinonjs/text-encoding/-/text-encoding-0.7.1.tgz#8da5c6530915653f3a1f38fd5f101d8c3f8079c5"
   integrity sha512-+iTbntw2IZPb/anVDbypzfQa+ay64MW0Zo8aJ8gZPWMMK6/OubMVb6lUPMagqjOPnmtauXnFCACVl3O7ogjeqQ==
 
-"@softchef/cdk-restapi@^0.1.15":
-  version "0.1.15"
-  resolved "https://registry.yarnpkg.com/@softchef/cdk-restapi/-/cdk-restapi-0.1.15.tgz#478de5863af279afcb763bb6b63fe4abd512b3ed"
-  integrity sha512-Keod7y6724f7jTuwD6h5TeKVa4Cz4LPOT2brEq7fRDF85TFHv5YTgh4Wh3xJq9YGC0Uzrac2TCfiYMtt72ZGzg==
+"@softchef/cdk-restapi@^0.1.16":
+  version "0.1.16"
+  resolved "https://registry.yarnpkg.com/@softchef/cdk-restapi/-/cdk-restapi-0.1.16.tgz#de951f968a88a021fd1186c607fe64fb9820f825"
+  integrity sha512-KOM+37ZSLXC2McokCewl8N3JmlF5n8G0uXVjr2j5KUVkapehbQJvrj4ynstblXQnDoWEK3wwuqq7Ctu93tbv3w==
   dependencies:
     "@aws-cdk/aws-apigateway" "^1.95.2"
     "@aws-cdk/aws-cognito" "^1.95.2"
@@ -2259,9 +2259,9 @@
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
 "@types/node@*":
-  version "16.4.8"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.4.8.tgz#ef4974f47524448428542365db2fe7b638f928e5"
-  integrity sha512-VL7RZyCpfYEmbyd3/Eq5RNYhZt7yoL1JThZQ3KzimzhLya2Qa86U1ZZmioNWAAjiz99z1ED1xF9NUV2srvfVrA==
+  version "16.4.9"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.4.9.tgz#04eb3da65d08ea377f5e682bf0d22dc1f5e7f19e"
+  integrity sha512-HXhRf581nCItzn8yevv4LYt+bJ5cBbDBAJExbDPMeU/2n5/j0ZemGpayahFBP4xL7RseaCLASLD9i9AYyDe7Nw==
 
 "@types/node@15.12.2":
   version "15.12.2"
@@ -3125,9 +3125,9 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
 constructs@^3.3.69:
-  version "3.3.108"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.3.108.tgz#1d78a0cbe87ebb1d3565b8e046c074dd2aaf5f34"
-  integrity sha512-7FT28bE9KIU8Pplwi7dTVLoEbCQrvW4KSpGVb9emaiVeUHA2BmUN6Ji9qICPH3H1QR2+gcn8gXZGbuha9VuuKA==
+  version "3.3.109"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.3.109.tgz#e95fff422674e30c54c945d696a4d8fc4ebfbcc1"
+  integrity sha512-fqzzJg0vvy09r15e2j1sjOTECKQJtnj9QfkesjyKRh+xWHi+5ylVPzzpa8tHWYJuGebH/ba8sazETY1iG77iJg==
 
 conventional-changelog-angular@^5.0.12:
   version "5.0.12"
