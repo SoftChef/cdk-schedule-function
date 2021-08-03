@@ -9,6 +9,11 @@ const fnGetAttArn = (arn: string): { [key: string]: string[] } => {
     'Fn::GetAtt': [arn, 'Arn'],
   };
 };
+const fnJoin = (delimiter: string, values: any[]): { [key: string]: any[] } => {
+  return {
+    'Fn::Join': [delimiter, values],
+  };
+};
 const ref = (name: string): { [key: string]: string } => {
   return {
     Ref: name,
@@ -29,6 +34,7 @@ const expected = {
   recentMinutes: cdk.Duration.minutes(30),
   lambdaFunctionRuntime: 'nodejs14.x',
   scheduleTableName: 'ScheduleFunctionScheduleTable60883DB8',
+  scheduleTableQueryByScheduledAtIndexName: 'ScheduleFunctionScheduleTable60883DB8/index/Query-By-ScheduledAt',
   testTargetFunctionName: 'TestTarget4042A7F7',
 };
 
@@ -90,7 +96,13 @@ test('minimal usage', () => {
             'dynamodb:UpdateItem',
           ],
           Effect: 'Allow',
-          Resource: fnGetAttArn(expected.scheduleTableName),
+          Resource: [
+            fnGetAttArn(expected.scheduleTableName),
+            fnJoin('', [
+              fnGetAttArn(expected.scheduleTableName),
+              '/index/Query-By-ScheduledAt',
+            ]),
+          ],
         },
         {
           Action: 'lambda:InvokeFunction',

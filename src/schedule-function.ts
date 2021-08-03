@@ -178,6 +178,7 @@ export class ScheduleFunction extends cdk.Construct {
             ],
             resources: [
               this.scheduleTable.tableArn,
+              `${this.scheduleTable.tableArn}/index/Query-By-ScheduledAt`,
             ],
           }),
           new iam.PolicyStatement({
