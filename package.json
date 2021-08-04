@@ -52,7 +52,7 @@
     "jsii-pacmak": "^1.32.0",
     "json-schema": "^0.3.0",
     "npm-check-updates": "^11",
-    "projen": "0.27.13",
+    "projen": "0.27.15",
     "standard-version": "^9",
     "ts-jest": "^27.0.4",
     "typescript": "^4.3.5"
@@ -82,7 +82,7 @@
     "@aws-sdk/client-lambda": "^3.24.0",
     "@aws-sdk/lib-dynamodb": "^3.24.0",
     "@aws-sdk/util-dynamodb": "^3.24.0",
-    "@softchef/cdk-restapi": "^0.1.18",
+    "@softchef/cdk-restapi": "^0.1.20",
     "@softchef/lambda-events": "^0.0.8",
     "@types/node": "15.12.2",
     "@types/uuid": "^8.3.1",
