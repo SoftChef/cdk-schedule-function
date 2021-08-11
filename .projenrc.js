@@ -44,6 +44,9 @@ const project = new AwsCdkConstructLibrary({
   depsUpgrade: DependenciesUpgradeMechanism.githubWorkflow({
     ignoreProjen: false,
     workflowOptions: {
+      schedule: {
+        cron: ['30 0 * * *'],
+      },
       labels: ['auto-approve', 'auto-merge'],
       secret: AUTOMATION_TOKEN,
     },
