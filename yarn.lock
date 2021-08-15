@@ -2153,10 +2153,10 @@
   resolved "https://registry.yarnpkg.com/@sinonjs/text-encoding/-/text-encoding-0.7.1.tgz#8da5c6530915653f3a1f38fd5f101d8c3f8079c5"
   integrity sha512-+iTbntw2IZPb/anVDbypzfQa+ay64MW0Zo8aJ8gZPWMMK6/OubMVb6lUPMagqjOPnmtauXnFCACVl3O7ogjeqQ==
 
-"@softchef/cdk-restapi@^0.1.28":
-  version "0.1.28"
-  resolved "https://registry.yarnpkg.com/@softchef/cdk-restapi/-/cdk-restapi-0.1.28.tgz#023fb213f0c024d58cacd113dc1236f73cb0d0a4"
-  integrity sha512-7pq8yzHyE9sMvLyzX49yUzn4fd7DdD3NrfUe0kqo6BHW7J/8q30uBroZVZAmkksKuEnCryGPcqdhxuBSheoiEQ==
+"@softchef/cdk-restapi@^0.1.29":
+  version "0.1.29"
+  resolved "https://registry.yarnpkg.com/@softchef/cdk-restapi/-/cdk-restapi-0.1.29.tgz#7205da1c66a0869d3265dce08611edf0282fc7a2"
+  integrity sha512-zJ02ruKMm3NyAQdKXQL3rAfHWCkwt2bzKWkpkQ4+vv8sADn3GgprLnGt95/7jIaSnFmJqC7+cY2JDKUrKNHSgQ==
   dependencies:
     "@aws-cdk/aws-apigateway" "^1.95.2"
     "@aws-cdk/aws-cognito" "^1.95.2"
@@ -3134,9 +3134,9 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
 constructs@^3.3.69:
-  version "3.3.122"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.3.122.tgz#9d5c80151eede62d2534a81ab8caf81c666901a2"
-  integrity sha512-IG4iUws5M433XiS3Tpz5PXRoB3dxCezZNR/7qakYs3yV/YRE3KB7dszuDkpr0cG0W3V0/Vgpwh3rSZVAnzAyNQ==
+  version "3.3.123"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.3.123.tgz#f3feeab6cfcb25eafd9c0800522c1f10b84472c0"
+  integrity sha512-TN8932wImRGcTKzrlTMU+jX5yo1+nYyz25XejnL+6yu6KnqiDNHnZqbaLr3IGLH5HyjNR+GVIW3457aU7+9s/g==
 
 conventional-changelog-angular@^5.0.12:
   version "5.0.12"
@@ -3616,9 +3616,9 @@ ecc-jsbn@~0.1.1:
     safer-buffer "^2.1.0"
 
 electron-to-chromium@^1.3.793:
-  version "1.3.805"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.805.tgz#a0873393a3b027ec60bdaf22a19c4946688cf941"
-  integrity sha512-uUJF59M6pNSRHQaXwdkaNB4BhSQ9lldRdG1qCjlrAFkynPGDc5wPoUcYEQQeQGmKyAWJPvGkYAWmtVrxWmDAkg==
+  version "1.3.806"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.806.tgz#21502100f11aead6c501d1cd7f2504f16c936642"
+  integrity sha512-AH/otJLAAecgyrYp0XK1DPiGVWcOgwPeJBOLeuFQ5l//vhQhwC9u6d+GijClqJAmsHG4XDue81ndSQPohUu0xA==
 
 emittery@^0.8.1:
   version "0.8.1"
