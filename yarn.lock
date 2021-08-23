@@ -2160,10 +2160,10 @@
   resolved "https://registry.yarnpkg.com/@sinonjs/text-encoding/-/text-encoding-0.7.1.tgz#8da5c6530915653f3a1f38fd5f101d8c3f8079c5"
   integrity sha512-+iTbntw2IZPb/anVDbypzfQa+ay64MW0Zo8aJ8gZPWMMK6/OubMVb6lUPMagqjOPnmtauXnFCACVl3O7ogjeqQ==
 
-"@softchef/cdk-restapi@^0.1.36":
-  version "0.1.36"
-  resolved "https://registry.yarnpkg.com/@softchef/cdk-restapi/-/cdk-restapi-0.1.36.tgz#c2f702fa3f9a28ac9d8af7bf5a67477370850b41"
-  integrity sha512-+b+BmCaOG/ZRa2LVrKK/29mQBxxc9yLHpVQQYz6Rd/XK+j027/yMR2MKx06YQ8UkK+2qSq2v59W0w/5WpWNTPw==
+"@softchef/cdk-restapi@^0.1.37":
+  version "0.1.37"
+  resolved "https://registry.yarnpkg.com/@softchef/cdk-restapi/-/cdk-restapi-0.1.37.tgz#f4a3c4fd27d188e682890bae24424111b9b5ab71"
+  integrity sha512-Ij/RFSIpoYUWIc/fYujdZGYpOsF9Jnn4Id/hCMEBLafHUleh9IgNdGxoUUleXzY3hyTUKEVCJexNYCg48d7wSQ==
   dependencies:
     "@aws-cdk/aws-apigateway" "^1.95.2"
     "@aws-cdk/aws-cognito" "^1.95.2"
