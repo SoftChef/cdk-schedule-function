@@ -45,7 +45,7 @@ const project = new AwsCdkConstructLibrary({
     ignoreProjen: false,
     workflowOptions: {
       schedule: {
-        cron: ['30 0 * * *'],
+        cron: ['0 1 * * *'],
       },
       labels: ['auto-approve', 'auto-merge'],
       secret: AUTOMATION_TOKEN,
