@@ -11,7 +11,7 @@
     },
     {
       "name": "@types/node",
-      "version": "^10.17.0",
+      "version": "^14.15.0",
       "type": "build"
     },
     {
@@ -123,11 +123,6 @@
     },
     {
       "name": "@softchef/lambda-events",
-      "type": "bundled"
-    },
-    {
-      "name": "@types/node",
-      "version": "15.12.2",
       "type": "bundled"
     },
     {
