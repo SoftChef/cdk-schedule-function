@@ -13,7 +13,7 @@ const project = new AwsCdkConstructLibrary({
   name: '@softchef/cdk-schedule-function',
   description: 'Manageable schedule to invoke lambda functions',
   repositoryUrl: 'https://github.com/softchef/cdk-schedule-function.git',
-  minNodeVersion: '14.15.0',
+  minNodeVersion: '14.17.0',
   cdkDependencies: [
     '@aws-cdk/core',
     '@aws-cdk/aws-apigateway',
