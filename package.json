@@ -83,7 +83,7 @@
     "@aws-sdk/client-lambda": "^3.31.0",
     "@aws-sdk/lib-dynamodb": "^3.31.0",
     "@aws-sdk/util-dynamodb": "^3.31.0",
-    "@softchef/cdk-restapi": "^0.1.55",
+    "@softchef/cdk-restapi": "^0.1.56",
     "@softchef/lambda-events": "^0.0.8",
     "@types/uuid": "^8.3.1",
     "dayjs": "^1.10.7",
