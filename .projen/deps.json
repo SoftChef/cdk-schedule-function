@@ -110,6 +110,10 @@
       "type": "bundled"
     },
     {
+      "name": "@aws-sdk/client-s3",
+      "type": "bundled"
+    },
+    {
       "name": "@aws-sdk/lib-dynamodb",
       "type": "bundled"
     },

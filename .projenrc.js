@@ -28,6 +28,7 @@ const project = new AwsCdkConstructLibrary({
     '@aws-sdk/client-dynamodb',
     '@aws-sdk/client-eventbridge',
     '@aws-sdk/client-lambda',
+    '@aws-sdk/client-s3', // Hotfix for aws-sdk-client-mock dependency.
     '@aws-sdk/lib-dynamodb',
     '@aws-sdk/util-dynamodb',
     '@softchef/lambda-events',
