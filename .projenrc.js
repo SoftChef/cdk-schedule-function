@@ -1,4 +1,4 @@
-const { AwsCdkConstructLibrary, DependenciesUpgradeMechanism, NpmAccess } = require('projen');
+const { AwsCdkConstructLibrary, NpmAccess } = require('projen');
 
 const AUTOMATION_TOKEN = 'PROJEN_GITHUB_TOKEN';
 
@@ -42,7 +42,7 @@ const project = new AwsCdkConstructLibrary({
     'aws-sdk-client-mock',
     'esbuild',
   ],
-  depsUpgrade: DependenciesUpgradeMechanism.githubWorkflow({
+  depsUpgradeOptions: {
     ignoreProjen: false,
     workflowOptions: {
       schedule: {
@@ -51,7 +51,7 @@ const project = new AwsCdkConstructLibrary({
       labels: ['auto-approve', 'auto-merge'],
       secret: AUTOMATION_TOKEN,
     },
-  }),
+  },
   autoApproveOptions: {
     secret: 'GITHUB_TOKEN',
     allowedUsernames: ['MinCheTsai'],
