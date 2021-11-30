@@ -77,4 +77,9 @@ const project = new AwsCdkConstructLibrary({
     'src/**/dist',
   ],
 });
+
+project.package.addField('resolutions', {
+  'jest-environment-jsdom': '27.3.1',
+});
+
 project.synth();
