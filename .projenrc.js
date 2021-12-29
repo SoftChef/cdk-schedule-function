@@ -41,7 +41,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     'esbuild',
   ],
   depsUpgradeOptions: {
-    ignoreProjen: false,
+    ignoreProjen: true,
     workflowOptions: {
       schedule: {
         cron: ['0 1 * * *'],
