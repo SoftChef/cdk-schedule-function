@@ -8,20 +8,21 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorEmail: 'poke@softchef.com',
   authorUrl: 'https://www.softchef.com',
   authorOrganization: true,
-  defaultReleaseBranch: 'main',
   name: PROJECT_NAME,
   description: PROJECT_DESCRIPTION,
   repositoryUrl: 'https://github.com/softchef/cdk-schedule-function.git',
-  cdkVersion: '1.73.0',
-  cdkDependencies: [
-    '@aws-cdk/core',
-    '@aws-cdk/aws-apigateway',
-    '@aws-cdk/aws-dynamodb',
-    '@aws-cdk/aws-events',
-    '@aws-cdk/aws-events-targets',
-    '@aws-cdk/aws-iam',
-    '@aws-cdk/aws-lambda',
-    '@aws-cdk/aws-lambda-nodejs',
+  cdkVersion: '2.1.0',
+  majorVersion: 2,
+  defaultReleaseBranch: 'main',
+  releaseBranches: {
+    cdkv1: {
+      npmDistTag: 'cdkv1',
+      majorVersion: 1,
+    },
+  },
+  deps: [
+    '@aws-cdk/aws-apigatewayv2-alpha',
+    '@aws-cdk/aws-apigatewayv2-integrations-alpha',
   ],
   bundledDeps: [
     '@aws-sdk/client-dynamodb',
@@ -38,8 +39,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
     'uuid',
   ],
   devDeps: [
+    'aws-cdk',
     'aws-sdk-client-mock',
     'esbuild',
+    'ts-node',
   ],
   depsUpgradeOptions: {
     ignoreProjen: false,

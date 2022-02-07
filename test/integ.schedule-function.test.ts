@@ -1,8 +1,19 @@
-import { SynthUtils } from '@aws-cdk/assert';
-import '@aws-cdk/assert/jest';
-import * as lambda from '@aws-cdk/aws-lambda';
-import * as cdk from '@aws-cdk/core';
-import { ScheduleFunction } from '../src/index';
+import {
+  Template,
+} from 'aws-cdk-lib/assertions';
+import {
+  Function,
+  InlineCode,
+  Runtime,
+} from 'aws-cdk-lib/aws-lambda';
+import {
+  App,
+  Duration,
+  Stack,
+} from 'aws-cdk-lib/core';
+import {
+  ScheduleFunction,
+} from '../src/index';
 
 const fnGetAttArn = (arn: string): { [key: string]: string[] } => {
   return {
@@ -30,8 +41,8 @@ const expectedRoles = {
 };
 
 const expected = {
-  dispatchTargetFunctionTimeout: cdk.Duration.seconds(30),
-  recentMinutes: cdk.Duration.minutes(30),
+  dispatchTargetFunctionTimeout: Duration.seconds(30),
+  recentMinutes: Duration.minutes(30),
   lambdaFunctionRuntime: 'nodejs14.x',
   scheduleTableName: 'ScheduleFunctionScheduleTable60883DB8',
   scheduleTableQueryByScheduledAtIndexName: 'ScheduleFunctionScheduleTable60883DB8/index/Query-By-ScheduledAt',
@@ -39,12 +50,12 @@ const expected = {
 };
 
 test('minimal usage', () => {
-  const app = new cdk.App();
-  const stack = new cdk.Stack(app, 'demo-stack');
-  const testTargetFunction = new lambda.Function(stack, 'TestTarget', {
-    runtime: lambda.Runtime.NODEJS_12_X,
+  const app = new App();
+  const stack = new Stack(app, 'demo-stack');
+  const testTargetFunction = new Function(stack, 'TestTarget', {
+    runtime: Runtime.NODEJS_12_X,
     handler: 'index.handler',
-    code: new lambda.InlineCode(`
+    code: new InlineCode(`
       export async function handler() {
         return {
           success: true,
@@ -60,22 +71,23 @@ test('minimal usage', () => {
   scheduleFunction.addTargetFunction('TestTarget', {
     targetFunction: testTargetFunction,
   });
-  expect(SynthUtils.synthesize(stack).template).toMatchSnapshot();
-  expect(stack).toHaveResourceLike('AWS::Lambda::Function', {
+  const template = Template.fromStack(stack);
+  expect(template.toJSON()).toMatchSnapshot();
+  template.hasResourceProperties('AWS::Lambda::Function', {
     Runtime: expected.lambdaFunctionRuntime,
     Timeout: expected.dispatchTargetFunctionTimeout.toSeconds(),
   });
-  expect(stack).toHaveResourceLike('AWS::Events::Rule', {
+  template.hasResourceProperties('AWS::Events::Rule', {
     ScheduleExpression: 'rate(1 minute)',
     State: 'ENABLED',
   });
-  expect(stack).toCountResources('AWS::Lambda::Function', 7);
-  expect(stack).toCountResources('AWS::Lambda::Permission', 1);
-  expect(stack).toCountResources('AWS::IAM::Role', 7);
-  expect(stack).toCountResources('AWS::IAM::Policy', 6); // Test target only has Role, non-policy
-  expect(stack).toCountResources('AWS::DynamoDB::Table', 1);
+  template.resourceCountIs('AWS::Lambda::Function', 7);
+  template.resourceCountIs('AWS::Lambda::Permission', 1);
+  template.resourceCountIs('AWS::IAM::Role', 7);
+  template.resourceCountIs('AWS::IAM::Policy', 6); // Test target only has Role, non-policy
+  template.resourceCountIs('AWS::DynamoDB::Table', 1);
   // Dispatch target function
-  expect(stack).toHaveResourceLike('AWS::Lambda::Function', {
+  template.hasResourceProperties('AWS::Lambda::Function', {
     Runtime: expected.lambdaFunctionRuntime,
     Role: fnGetAttArn(expectedRoles.dispatchTargetFunctionRole),
     Environment: {
@@ -84,7 +96,7 @@ test('minimal usage', () => {
       },
     },
   });
-  expect(stack).toHaveResourceLike('AWS::IAM::Policy', {
+  template.hasResourceProperties('AWS::IAM::Policy', {
     Roles: [
       ref(expectedRoles.dispatchTargetFunctionRole),
     ],
@@ -115,7 +127,7 @@ test('minimal usage', () => {
     },
   });
   // Create schedule function
-  expect(stack).toHaveResourceLike('AWS::Lambda::Function', {
+  template.hasResourceProperties('AWS::Lambda::Function', {
     Runtime: expected.lambdaFunctionRuntime,
     Role: fnGetAttArn(expectedRoles.createScheduleFunctionRole),
     Environment: {
@@ -124,7 +136,7 @@ test('minimal usage', () => {
       },
     },
   });
-  expect(stack).toHaveResourceLike('AWS::IAM::Policy', {
+  template.hasResourceProperties('AWS::IAM::Policy', {
     Roles: [
       ref(expectedRoles.createScheduleFunctionRole),
     ],
@@ -139,7 +151,7 @@ test('minimal usage', () => {
     },
   });
   // Update schedule function
-  expect(stack).toHaveResourceLike('AWS::Lambda::Function', {
+  template.hasResourceProperties('AWS::Lambda::Function', {
     Runtime: expected.lambdaFunctionRuntime,
     Role: fnGetAttArn(expectedRoles.updateScheduleFunctionRole),
     Environment: {
@@ -148,7 +160,7 @@ test('minimal usage', () => {
       },
     },
   });
-  expect(stack).toHaveResourceLike('AWS::IAM::Policy', {
+  template.hasResourceProperties('AWS::IAM::Policy', {
     Roles: [
       ref(expectedRoles.updateScheduleFunctionRole),
     ],
@@ -166,7 +178,7 @@ test('minimal usage', () => {
     },
   });
   // List schedules function
-  expect(stack).toHaveResourceLike('AWS::Lambda::Function', {
+  template.hasResourceProperties('AWS::Lambda::Function', {
     Runtime: expected.lambdaFunctionRuntime,
     Role: fnGetAttArn(expectedRoles.listScheduleFunctionRole),
     Environment: {
@@ -175,7 +187,7 @@ test('minimal usage', () => {
       },
     },
   });
-  expect(stack).toHaveResourceLike('AWS::IAM::Policy', {
+  template.hasResourceProperties('AWS::IAM::Policy', {
     Roles: [
       ref(expectedRoles.listScheduleFunctionRole),
     ],
@@ -193,7 +205,7 @@ test('minimal usage', () => {
     },
   });
   // Fetch schedule function
-  expect(stack).toHaveResourceLike('AWS::Lambda::Function', {
+  template.hasResourceProperties('AWS::Lambda::Function', {
     Runtime: expected.lambdaFunctionRuntime,
     Role: fnGetAttArn(expectedRoles.fetchScheduleFunctionRole),
     Environment: {
@@ -202,7 +214,7 @@ test('minimal usage', () => {
       },
     },
   });
-  expect(stack).toHaveResourceLike('AWS::IAM::Policy', {
+  template.hasResourceProperties('AWS::IAM::Policy', {
     Roles: [
       ref(expectedRoles.fetchScheduleFunctionRole),
     ],
@@ -217,7 +229,7 @@ test('minimal usage', () => {
     },
   });
   // Delete schedule function
-  expect(stack).toHaveResourceLike('AWS::Lambda::Function', {
+  template.hasResourceProperties('AWS::Lambda::Function', {
     Runtime: expected.lambdaFunctionRuntime,
     Role: fnGetAttArn(expectedRoles.deleteScheduleFunctionRole),
     Environment: {
@@ -226,7 +238,7 @@ test('minimal usage', () => {
       },
     },
   });
-  expect(stack).toHaveResourceLike('AWS::IAM::Policy', {
+  template.hasResourceProperties('AWS::IAM::Policy', {
     Roles: [
       ref(expectedRoles.deleteScheduleFunctionRole),
     ],
@@ -244,7 +256,7 @@ test('minimal usage', () => {
     },
   });
   // Schedule Table
-  expect(stack).toHaveResourceLike('AWS::DynamoDB::Table', {
+  template.hasResourceProperties('AWS::DynamoDB::Table', {
     AttributeDefinitions: [
       {
         AttributeName: 'scheduleId',
