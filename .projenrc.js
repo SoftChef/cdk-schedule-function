@@ -1,17 +1,18 @@
-const { awscdk } = require('projen');
+const { awscdk, AUTOMATION_TOKEN } = require('projen');
 
-const AUTOMATION_TOKEN = 'PROJEN_GITHUB_TOKEN';
+const PROJECT_NAME = '@softchef/cdk-schedule-function';
+const PROJECT_DESCRIPTION = 'Manageable schedule to invoke lambda functions';
 
 const project = new awscdk.AwsCdkConstructLibrary({
-  author: 'SoftChef',
+  authorName: 'SoftChef',
   authorEmail: 'poke@softchef.com',
   authorUrl: 'https://www.softchef.com',
   authorOrganization: true,
-  cdkVersion: '1.73.0',
   defaultReleaseBranch: 'main',
-  name: '@softchef/cdk-schedule-function',
-  description: 'Manageable schedule to invoke lambda functions',
+  name: PROJECT_NAME,
+  description: PROJECT_DESCRIPTION,
   repositoryUrl: 'https://github.com/softchef/cdk-schedule-function.git',
+  cdkVersion: '1.73.0',
   cdkDependencies: [
     '@aws-cdk/core',
     '@aws-cdk/aws-apigateway',
@@ -41,7 +42,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     'esbuild',
   ],
   depsUpgradeOptions: {
-    ignoreProjen: true,
+    ignoreProjen: false,
     workflowOptions: {
       schedule: {
         cron: ['0 1 * * *'],
@@ -70,13 +71,19 @@ const project = new awscdk.AwsCdkConstructLibrary({
       ],
     },
   },
-  gitignore: [
-    'src/**/dist',
-  ],
 });
 
 project.package.addField('resolutions', {
   'jest-environment-jsdom': '27.3.1',
 });
+
+const commonExclude = [
+  'cdk.out',
+  'cdk.context.json',
+  'yarn-error.log',
+];
+
+project.npmignore.exclude(...commonExclude);
+project.gitignore.exclude(...commonExclude);
 
 project.synth();
