@@ -11,7 +11,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   name: PROJECT_NAME,
   description: PROJECT_DESCRIPTION,
   repositoryUrl: 'https://github.com/softchef/cdk-schedule-function.git',
-  cdkVersion: '2.1.0',
+  cdkVersion: '2.17.0',
   majorVersion: 2,
   defaultReleaseBranch: 'main',
   releaseBranches: {
@@ -39,7 +39,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
     'uuid',
   ],
   devDeps: [
-    'aws-cdk',
     'aws-sdk-client-mock',
     'esbuild',
     'ts-node',
