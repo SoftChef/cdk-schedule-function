@@ -58,11 +58,11 @@
     "jsii-pacmak": "^1.55.1",
     "json-schema": "^0.4.0",
     "npm-check-updates": "^12",
-    "projen": "^0.53.9",
+    "projen": "^0.53.12",
     "standard-version": "^9",
-    "ts-jest": "^27.1.3",
+    "ts-jest": "^27.1.4",
     "ts-node": "^10.7.0",
-    "typescript": "^4.6.2"
+    "typescript": "^4.6.3"
   },
   "peerDependencies": {
     "aws-cdk-lib": "^2.17.0",
@@ -71,12 +71,12 @@
   "dependencies": {
     "@aws-cdk/aws-apigatewayv2-alpha": "^2.17.0-alpha.0",
     "@aws-cdk/aws-apigatewayv2-integrations-alpha": "^2.17.0-alpha.0",
-    "@aws-sdk/client-dynamodb": "^3.55.0",
-    "@aws-sdk/client-eventbridge": "^3.55.0",
-    "@aws-sdk/client-lambda": "^3.55.0",
-    "@aws-sdk/client-s3": "^3.55.0",
-    "@aws-sdk/lib-dynamodb": "^3.55.0",
-    "@aws-sdk/util-dynamodb": "^3.55.0",
+    "@aws-sdk/client-dynamodb": "^3.56.0",
+    "@aws-sdk/client-eventbridge": "^3.56.0",
+    "@aws-sdk/client-lambda": "^3.56.0",
+    "@aws-sdk/client-s3": "^3.56.0",
+    "@aws-sdk/lib-dynamodb": "^3.56.0",
+    "@aws-sdk/util-dynamodb": "^3.56.0",
     "@softchef/cdk-restapi": "^0.1.158",
     "@softchef/lambda-events": "^0.0.8",
     "@types/uuid": "^8.3.4",
