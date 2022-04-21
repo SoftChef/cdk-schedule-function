@@ -1,11 +1,7 @@
 import {
-  CorsHttpMethod,
-  HttpApi,
   HttpMethod,
-} from '@aws-cdk/aws-apigatewayv2-alpha';
-import {
-  HttpLambdaIntegration,
-} from '@aws-cdk/aws-apigatewayv2-integrations-alpha';
+  RestApi,
+} from '@softchef/cdk-restapi';
 import {
   NodejsFunction,
 } from 'aws-cdk-lib/aws-lambda-nodejs';
@@ -31,42 +27,33 @@ scheduleFunction.addTargetFunction('testTarget', {
   }),
 });
 
-const scheduleApi: HttpApi = new HttpApi(stack, 'ScheduleApi', {
-  corsPreflight: {
-    allowHeaders: [
-      'Content-Type',
-    ],
-    allowMethods: [
-      CorsHttpMethod.GET,
-      CorsHttpMethod.POST,
-    ],
-    allowOrigins: [
-      '*',
-    ],
-  },
-});
-scheduleApi.addRoutes({
-  path: '/schedules',
-  methods: [HttpMethod.POST],
-  integration: new HttpLambdaIntegration('CreateScheduleFunctionIntegration', scheduleFunction.createScheduleFunction),
-});
-scheduleApi.addRoutes({
-  path: '/schedules',
-  methods: [HttpMethod.GET],
-  integration: new HttpLambdaIntegration('ListSchedulesFunctionIntegration', scheduleFunction.listSchedulesFunction),
-});
-scheduleApi.addRoutes({
-  path: '/schedules/{scheduleId}',
-  methods: [HttpMethod.GET],
-  integration: new HttpLambdaIntegration('FetchcheduleFunctionIntegration', scheduleFunction.fetchScheduleFunction),
-});
-scheduleApi.addRoutes({
-  path: '/schedules/{scheduleId}',
-  methods: [HttpMethod.PUT],
-  integration: new HttpLambdaIntegration('UpdateScheduleFunctionIntegration', scheduleFunction.updateScheduleFunction),
-});
-scheduleApi.addRoutes({
-  path: '/schedules/{scheduleId}',
-  methods: [HttpMethod.DELETE],
-  integration: new HttpLambdaIntegration('DeleteScheduleFunctionIntegration', scheduleFunction.deleteScheduleFunction),
+new RestApi(stack, 'ScheduleApi', {
+  enableCors: true,
+  resources: [
+    {
+      path: '/schedules',
+      httpMethod: HttpMethod.POST,
+      lambdaFunction: scheduleFunction.createScheduleFunction,
+    },
+    {
+      path: '/schedules',
+      httpMethod: HttpMethod.GET,
+      lambdaFunction: scheduleFunction.listSchedulesFunction,
+    },
+    {
+      path: '/schedules/{scheduleId}',
+      httpMethod: HttpMethod.GET,
+      lambdaFunction: scheduleFunction.fetchScheduleFunction,
+    },
+    {
+      path: '/schedules/{scheduleId}',
+      httpMethod: HttpMethod.PUT,
+      lambdaFunction: scheduleFunction.updateScheduleFunction,
+    },
+    {
+      path: '/schedules/{scheduleId}',
+      httpMethod: HttpMethod.DELETE,
+      lambdaFunction: scheduleFunction.deleteScheduleFunction,
+    },
+  ],
 });

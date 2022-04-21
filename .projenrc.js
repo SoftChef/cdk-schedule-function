@@ -11,7 +11,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   name: PROJECT_NAME,
   description: PROJECT_DESCRIPTION,
   repositoryUrl: 'https://github.com/softchef/cdk-schedule-function.git',
-  cdkVersion: '2.17.0',
+  cdkVersion: '2.1.0',
   majorVersion: 2,
   defaultReleaseBranch: 'main',
   releaseBranches: {
@@ -20,10 +20,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
       majorVersion: 1,
     },
   },
-  deps: [
-    '@aws-cdk/aws-apigatewayv2-alpha',
-    '@aws-cdk/aws-apigatewayv2-integrations-alpha',
-  ],
   bundledDeps: [
     '@aws-sdk/client-dynamodb',
     '@aws-sdk/client-eventbridge',
