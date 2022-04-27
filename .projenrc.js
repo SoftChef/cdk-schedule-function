@@ -8,11 +8,21 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorEmail: 'poke@softchef.com',
   authorUrl: 'https://www.softchef.com',
   authorOrganization: true,
-  defaultReleaseBranch: 'main',
   name: PROJECT_NAME,
   description: PROJECT_DESCRIPTION,
   repositoryUrl: 'https://github.com/softchef/cdk-schedule-function.git',
   cdkVersion: '1.73.0',
+  defaultReleaseBranch: 'main',
+  /**
+   * we default release the main branch(cdkv2) with major version 2.
+   */
+   majorVersion: 2,
+   releaseBranches: {
+     cdkv1: {
+       npmDistTag: 'cdkv1',
+       majorVersion: 1,
+     },
+   },
   cdkDependencies: [
     '@aws-cdk/core',
     '@aws-cdk/aws-apigateway',
