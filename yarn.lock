@@ -1873,10 +1873,10 @@
   resolved "https://registry.yarnpkg.com/@sinonjs/text-encoding/-/text-encoding-0.7.1.tgz#8da5c6530915653f3a1f38fd5f101d8c3f8079c5"
   integrity sha512-+iTbntw2IZPb/anVDbypzfQa+ay64MW0Zo8aJ8gZPWMMK6/OubMVb6lUPMagqjOPnmtauXnFCACVl3O7ogjeqQ==
 
-"@softchef/cdk-restapi@^2.0.146":
-  version "2.0.146"
-  resolved "https://registry.yarnpkg.com/@softchef/cdk-restapi/-/cdk-restapi-2.0.146.tgz#db6b32986ee4456badae5b0a251e5edee84b7a7f"
-  integrity sha512-B4pqI+ckWZffiBAjaJPlWmWDNxyEyRiR3x1hk9msAx5RcOACvBkotxI+VqGkHLgOTeuLNoFD3o+0nifrUJxvWg==
+"@softchef/cdk-restapi@^2.0.147":
+  version "2.0.147"
+  resolved "https://registry.yarnpkg.com/@softchef/cdk-restapi/-/cdk-restapi-2.0.147.tgz#be4fb4a98db425929b82ba08860f432d9d2dbfac"
+  integrity sha512-eTGBEtBFQAPU8rhqbvJarsuBAqf7xnNCEl9A3s6fxOyPY/jA6xnv4BBRXR4jzcfKsS81OdYNFlxuKoxKDbEtRg==
 
 "@softchef/lambda-events@^0.0.8":
   version "0.0.8"
@@ -2012,9 +2012,9 @@
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
 "@types/node@*":
-  version "18.0.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.0.2.tgz#a594e580c396c22dd6b1470be81737c79ec0b1b1"
-  integrity sha512-b947SdS4GH+g2W33wf5FzUu1KLj5FcSIiNWbU1ZyMvt/X7w48ZsVcsQoirIgE/Oq03WT5Qbn/dkY0hePi4ZXcQ==
+  version "18.0.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.0.3.tgz#463fc47f13ec0688a33aec75d078a0541a447199"
+  integrity sha512-HzNRZtp4eepNitP+BD6k2L6DROIDG4Q0fm4x+dwfsr6LGmROENnok75VGw40628xf+iR24WeMFcHuuBDUAzzsQ==
 
 "@types/node@15.12.2":
   version "15.12.2"
@@ -3084,7 +3084,7 @@ data-urls@^2.0.0:
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
 
-date-format@^4.0.10:
+date-format@^4.0.10, date-format@^4.0.11:
   version "4.0.11"
   resolved "https://registry.yarnpkg.com/date-format/-/date-format-4.0.11.tgz#ae0d1e069d7f0687938fd06f98c12f3a6276e526"
   integrity sha512-VS20KRyorrbMCQmpdl2hg5KaOUsda1RbnsJg461FfrcyCUg+pkd0b40BSW4niQyTheww4DBXQnS7HwSrKkipLw==
@@ -3287,9 +3287,9 @@ duplexer3@^0.1.4:
   integrity sha512-CEj8FwwNA4cVH2uFCoHUrmojhYh1vmCdOaneKJXwkeY1i9jnlslVo9dx+hQ5Hl9GnH/Bwy/IjxAyOePyPKYnzA==
 
 electron-to-chromium@^1.4.172:
-  version "1.4.180"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.180.tgz#380b06037836055d12c7de181ee90b8ed911c3e7"
-  integrity sha512-7at5ash3FD9U5gPa3/wPr6OdiZd/zBjvDZaaHBpcqFOFUhZiWnb7stkqk8xUFL9H9nk7Yok5vCCNK8wyC/+f8A==
+  version "1.4.181"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.181.tgz#4568379c1493ee95342b13bb2279cf4d207f2c3a"
+  integrity sha512-T6JzLj+9J6CdPgI7jXLcq5Ao2qyFhEBfWFUExxRRVFdVYAU86SfcLX3Zw6p1HzvngR+M8C4q6eDkQ5flEr1RnA==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -5446,11 +5446,11 @@ lodash@^4.17.15, lodash@^4.17.21, lodash@^4.7.0:
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 log4js@^6.5.2:
-  version "6.5.2"
-  resolved "https://registry.yarnpkg.com/log4js/-/log4js-6.5.2.tgz#9ae371e5b3cb3a3a209c24686e5547f8670834e5"
-  integrity sha512-DXtpNtt+KDOMT7RHUDIur/WsSA3rntlUh9Zg4XCdV42wUuMmbFkl38+LZ92Z5QvQA7mD5kAVkLiBSEH/tvUB8A==
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/log4js/-/log4js-6.6.0.tgz#e8fd00143d1e0ecf1d10959bb69b90b1b30137f3"
+  integrity sha512-3v8R7fd45UB6THucSht6wN2/7AZEruQbXdjygPZcxt5TA/msO6si9CN5MefUuKXbYnJHTBnYcx4famwcyQd+sA==
   dependencies:
-    date-format "^4.0.10"
+    date-format "^4.0.11"
     debug "^4.3.4"
     flatted "^3.2.5"
     rfdc "^1.3.0"
