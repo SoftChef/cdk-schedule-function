@@ -75,7 +75,7 @@
     "@aws-sdk/client-s3": "^3.142.0",
     "@aws-sdk/lib-dynamodb": "^3.142.0",
     "@aws-sdk/util-dynamodb": "^3.142.0",
-    "@softchef/cdk-restapi": "^2.0.179",
+    "@softchef/cdk-restapi": "^2.0.180",
     "@softchef/lambda-events": "^0.0.8",
     "@types/uuid": "^8.3.4",
     "dayjs": "^1.11.4",

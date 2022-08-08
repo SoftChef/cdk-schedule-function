@@ -1899,10 +1899,10 @@
   resolved "https://registry.yarnpkg.com/@sinonjs/text-encoding/-/text-encoding-0.7.2.tgz#5981a8db18b56ba38ef0efb7d995b12aa7b51918"
   integrity sha512-sXXKG+uL9IrKqViTtao2Ws6dy0znu9sOaP1di/jKGW1M6VssO8vlpXCQcpZ+jisQ1tTFAC5Jo/EOzFbggBagFQ==
 
-"@softchef/cdk-restapi@^2.0.179":
-  version "2.0.179"
-  resolved "https://registry.yarnpkg.com/@softchef/cdk-restapi/-/cdk-restapi-2.0.179.tgz#87ea761efb7104c8c6c452f54fd990744ddd755f"
-  integrity sha512-MUcgUQsK5afeDUecy/AB7/cytqals69wURi+WJyFpNRSwP6uNvg+zD1If8m4YuaA576L9DiPG6nO/Dvr5Sediw==
+"@softchef/cdk-restapi@^2.0.180":
+  version "2.0.180"
+  resolved "https://registry.yarnpkg.com/@softchef/cdk-restapi/-/cdk-restapi-2.0.180.tgz#08d17ba956c7f8106230d3122a89c2f4cb7d9c37"
+  integrity sha512-nUzboWdLPmhdKKL9HKiWYVZ8WZWeCESKTomwka/u2ZFxaGGH/0G/Zve4dRqtPQO3OWChCqiG2UQeOcsuZKHr+A==
 
 "@softchef/lambda-events@^0.0.8":
   version "0.0.8"
